@@ -1,16 +1,6 @@
-/jenkins
-/rochfordbrady
-/screenshot
-/test-output
-/.classpath
-/.project
-/.settings
-/bin
 .settings
 bin
 jenkins
 rochfordbrady
 screenshot
 test-output
-.classpath
-.project
