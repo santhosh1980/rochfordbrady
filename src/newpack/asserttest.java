@@ -9,6 +9,8 @@ public class asserttest {
 	
 	public static void main (String[] args) throws Exception{
 		
+		//assert test
+		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
 		
 		
@@ -22,7 +24,7 @@ public class asserttest {
 		
 		try {
 			
-			Assert.assertEquals("oogle", driver.getTitle());
+			Assert.assertEquals("Google", driver.getTitle());
 			
 		}
 		
