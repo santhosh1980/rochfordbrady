@@ -301,8 +301,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				mywaitvar = new WebDriverWait(driver, 50);
 
-				mywaitvar
-						.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
+				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
 
 				// driver.findElement(By.xpath("//*[@id=\"all_reports\"]/a/p")).click();
 
