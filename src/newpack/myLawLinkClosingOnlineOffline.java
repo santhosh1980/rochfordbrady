@@ -59,9 +59,9 @@ public class myLawLinkClosingOnlineOffline {
 				driver = new ChromeDriver();
 
 				myRBlogin rb = new myRBlogin(driver);
-				
+
 				myRBcommon rbcom = new myRBcommon(driver);
-				
+
 				myRBLawlink rblawlink = new myRBLawlink(driver);
 
 				// create firefox instance
@@ -100,8 +100,8 @@ public class myLawLinkClosingOnlineOffline {
 
 				log.debug("Opening website");
 
-				//driver.findElement(By.xpath("//*[@id=\"header_right\"]/p/span/a")).click();
-				
+				// driver.findElement(By.xpath("//*[@id=\"header_right\"]/p/span/a")).click();
+
 				rblawlink.clickLawlinkLoginNowlink();
 
 				// get webelements
@@ -146,8 +146,8 @@ public class myLawLinkClosingOnlineOffline {
 				// click closing search button
 				Thread.sleep(5000);
 
-				//driver.findElement(By.xpath("//*[@id=\"leftmenu\"]/ul[2]/li/a")).click();
-				
+				// driver.findElement(By.xpath("//*[@id=\"leftmenu\"]/ul[2]/li/a")).click();
+
 				rblawlink.clickLawlinkClosingSearchlink();
 
 				log.debug("Clicking Closing search button");
@@ -165,44 +165,45 @@ public class myLawLinkClosingOnlineOffline {
 				// select the checkbox - Judgment/Bankruptcy & Personal Insolvency (ISI)
 				// searches, Registry of Deeds
 
-				//driver.findElement(By.id("chkJudg")).click();
-				
+				// driver.findElement(By.id("chkJudg")).click();
+
 				rblawlink.selectLawlinkClosingCheckJudgBox();
 
-				//driver.findElement(By.id("chkDeeds")).click();
-				
+				// driver.findElement(By.id("chkDeeds")).click();
+
 				rblawlink.selectLawlinkClosingCheckDeedsBox();
 
 				// Fill values for offline search
 
-				//driver.findElement(By.name("requiredBy")).sendKeys("23/10/2020");
-				
+				// driver.findElement(By.name("requiredBy")).sendKeys("23/10/2020");
+
 				rblawlink.setrequiredby("23/10/2020");
-				
-				//driver.findElement(By.xpath("//*[@id=\"step3\"]/table/tbody/tr[3]/td[2]/input[2]")).click();
-				
+
+				// driver.findElement(By.xpath("//*[@id=\"step3\"]/table/tbody/tr[3]/td[2]/input[2]")).click();
+
 				rblawlink.setdeliverby();
 
 				// Click Next button
 
-				//driver.findElement(By.name("next")).click();
-				
+				// driver.findElement(By.name("next")).click();
+
 				rblawlink.clickLawlinkClosingNextLink();
 
 				// pass Surname, firstname for online search then click add button
 
 				for (int j = 2; j < excel.getcolnum(1, i); j += 2) {
 
-					//driver.findElement(By.name("surname")).sendKeys(excel.getData(1, i, j));
+					// driver.findElement(By.name("surname")).sendKeys(excel.getData(1, i, j));
 
-					//driver.findElement(By.name("firstName")).sendKeys(excel.getData(1, i, j + 1));
+					// driver.findElement(By.name("firstName")).sendKeys(excel.getData(1, i, j +
+					// 1));
 
-					//driver.findElement(By.id("AddName")).click();
-					
+					// driver.findElement(By.id("AddName")).click();
+
 					rbcom.setsurname(excel.getData(1, i, j));
-					
+
 					rbcom.setfirstname(excel.getData(1, i, j + 1));
-					
+
 					rblawlink.clickLawlinkClosingAddNameLink();
 
 					Thread.sleep(5000);
@@ -290,8 +291,8 @@ public class myLawLinkClosingOnlineOffline {
 
 				// Click submit button
 
-				//driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/table[3]/tbody/tr[3]/td/input")).click();
-				
+				// driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/table[3]/tbody/tr[3]/td/input")).click();
+
 				rblawlink.clickLawlinkClosingOfflineSubmitlink();
 
 				// Thread.sleep(30000);
@@ -300,10 +301,11 @@ public class myLawLinkClosingOnlineOffline {
 
 				mywaitvar = new WebDriverWait(driver, 50);
 
-				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
+				mywaitvar
+						.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
 
-				//driver.findElement(By.xpath("//*[@id=\"all_reports\"]/a/p")).click();
-				
+				// driver.findElement(By.xpath("//*[@id=\"all_reports\"]/a/p")).click();
+
 				rblawlink.clickLawlinkClosingPDFLink();
 
 				log.debug("Clicking download pdf button");
