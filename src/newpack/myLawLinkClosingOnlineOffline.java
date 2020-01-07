@@ -43,6 +43,11 @@ public class myLawLinkClosingOnlineOffline {
 
 		// create chrome instance
 		System.setProperty("webdriver.chrome.driver", driverpath);
+		
+		// create firefox instance
+
+		//System.setProperty("webdriver.gecko.driver","C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+
 
 		// utility.dbconnect();
 
@@ -57,26 +62,14 @@ public class myLawLinkClosingOnlineOffline {
 				// "C:\\Users\\SThekkeNeetiath\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
 
 				driver = new ChromeDriver();
+				
+				//driver = new FirefoxDriver();
 
 				myRBlogin rb = new myRBlogin(driver);
 
 				myRBcommon rbcom = new myRBcommon(driver);
 
 				myRBLawlink rblawlink = new myRBLawlink(driver);
-
-				// create firefox instance
-
-				// System.setProperty("webdriver.firefox.marionette",
-				// "C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
-
-				// System.setProperty("webdriver.gecko.driver",
-				// "C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
-
-				// DesiredCapabilities dc = DesiredCapabilities.firefox();
-
-				// dc.setCapability("marionette", true);
-
-				// driver = new FirefoxDriver();
 
 				driver.manage().window().maximize();
 
