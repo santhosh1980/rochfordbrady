@@ -43,5 +43,6 @@
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/pdbox 2.0.11/fontbox-2.0.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/pdbox 2.0.11/pdfbox-2.0.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/Screenshot full webpage jar/ashot-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/Selenium Server (Grid)-3.141.59/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
