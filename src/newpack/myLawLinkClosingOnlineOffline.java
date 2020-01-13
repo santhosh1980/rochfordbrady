@@ -58,9 +58,7 @@ public class myLawLinkClosingOnlineOffline {
 
 			for (int i = 0; i <= excel.getrownum(1); i++) {
 
-				// System.setProperty("webdriver.chrome.driver",
-				// "C:\\Users\\SThekkeNeetiath\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
-
+				
 				driver = new ChromeDriver();
 				
 				//driver = new FirefoxDriver();
