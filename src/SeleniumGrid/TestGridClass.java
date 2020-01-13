@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -23,14 +24,14 @@ public class TestGridClass {
 	@Parameters({ "browserType" })
 	@BeforeTest
 	public void launchbrowser(String browserType) throws MalformedURLException {
-		String URL = "http://gmail.com";
+		String URL = "https://www.seleniumeasy.com/test/";
 
 		if (browserType.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FireFox");
 			String Node = "http://10.100.75.32:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
-
+			cap.setPlatform(Platform.WINDOWS);
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			// Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -42,6 +43,7 @@ public class TestGridClass {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.WINDOWS);
 			String Node = "http://10.100.75.32:4444/wd/hub";
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -53,6 +55,7 @@ public class TestGridClass {
 			System.out.println(" Executing on IE");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("ie");
+			cap.setPlatform(Platform.WINDOWS);
 			String Node = "http://10.100.75.32:4444/wd/hub";
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -66,15 +69,28 @@ public class TestGridClass {
 	}
 
 	@Test
-	public void GmailOperation() {
+	public void SeleniumFormTest() throws Exception {
 		
-		driver.findElement(By.xpath("//input[@id='Email']")).sendKeys("username");
-		driver.findElement(By.xpath("//input[@id='Passwd']")).sendKeys("password");
+		//Click Input forms
+		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
+		Thread.sleep(3000);
+		
+		//Click Simple form demo
+		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]/a")).click();
+		Thread.sleep(3000);
+		
+		//Enter message
+		driver.findElement(By.id("user-message")).sendKeys("Hello world");
+		Thread.sleep(3000);
+		
+		//Click show message button
+		driver.findElement(By.xpath("//*[@id=\"get-input\"]/button")).click();
+		Thread.sleep(3000);
 	}
 
 	@AfterTest
 	public void closeBrowser() {
-		// driver.quit();
+		driver.quit();
 	}
 
 }
