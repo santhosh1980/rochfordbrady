@@ -10,7 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,6 +49,10 @@ public class myLawLinkClosingOnlineOffline {
 		// create firefox instance
 
 		//System.setProperty("webdriver.gecko.driver","C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		
+		//create IE instance
+		
+		//System.setProperty("webdriver.edge.driver","C:\\Users\\U35035\\eclipse-workspace\\Microsoftwebdriver\\MicrosoftWebDriver.exe");
 
 
 		// utility.dbconnect();
@@ -60,6 +66,8 @@ public class myLawLinkClosingOnlineOffline {
 				driver = new ChromeDriver();
 				
 				//driver = new FirefoxDriver();
+				
+				//driver = new EdgeDriver();
 
 				myRBlogin rb = new myRBlogin(driver);
 
@@ -102,6 +110,8 @@ public class myLawLinkClosingOnlineOffline {
 				log.debug("Opening Login screen");
 
 				// pass credential and submit
+				
+				Thread.sleep(5000);
 
 				rb.setusername(excel.getData(1, i, 0));
 
@@ -188,6 +198,8 @@ public class myLawLinkClosingOnlineOffline {
 					// 1));
 
 					// driver.findElement(By.id("AddName")).click();
+					
+					Thread.sleep(5000);
 
 					rbcom.setsurname(excel.getData(1, i, j));
 
