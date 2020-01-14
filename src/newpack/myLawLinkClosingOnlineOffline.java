@@ -53,9 +53,7 @@ public class myLawLinkClosingOnlineOffline {
 
 		try {
 
-			// ExcelDataConfig excel= new
-			// ExcelDataConfig("C:\\Users\\SThekkeNeetiath\\eclipse-workspace\\Data\\TestDataOnlineOffline.xlsx");
-
+			
 			for (int i = 0; i <= excel.getrownum(1); i++) {
 
 				
