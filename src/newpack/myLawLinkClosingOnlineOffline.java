@@ -2,6 +2,7 @@ package newpack;
 
 import org.testng.annotations.Test;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
@@ -68,7 +69,8 @@ public class myLawLinkClosingOnlineOffline {
 				//driver = new FirefoxDriver();
 				
 				//driver = new EdgeDriver();
-
+				
+				
 				myRBlogin rb = new myRBlogin(driver);
 
 				myRBcommon rbcom = new myRBcommon(driver);
@@ -76,6 +78,8 @@ public class myLawLinkClosingOnlineOffline {
 				myRBLawlink rblawlink = new myRBLawlink(driver);
 
 				driver.manage().window().maximize();
+				
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 				// base url
 

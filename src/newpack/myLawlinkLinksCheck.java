@@ -1,6 +1,7 @@
 package newpack;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,6 +42,8 @@ public class myLawlinkLinksCheck {
 				myRBLawlink rblawlink = new myRBLawlink(driver);
 
 				driver.manage().window().maximize();
+				
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 				// base url
 
