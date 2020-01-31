@@ -20,22 +20,22 @@ import org.testng.annotations.AfterTest;
 public class CrossBrowserTest {
   
 	public WebDriver driver;
-	public String URL, Node;
-	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+	public String URL = "https://www.seleniumeasy.com/test/";
+		
 
 	@Parameters({ "browserType" })
 	@BeforeTest
 	public void launchbrowser(String browserType) throws MalformedURLException {
-		String URL = "https://www.seleniumeasy.com/test/";
+		
 
 		if (browserType.equalsIgnoreCase("firefox")) {
-			System.out.println(" Executing on FireFox");
+			System.out.println(" Crossbrowser Executing on FireFox");
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
 			driver=new FirefoxDriver();
 
 
 		} else if (browserType.equalsIgnoreCase("chrome")) {
-			System.out.println(" Executing on CHROME");
+			System.out.println(" Crossbrowser Executing on CHROME");
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
 
@@ -47,6 +47,11 @@ public class CrossBrowserTest {
 	@Test
 	public void SeleniumFormTest() throws Exception {
 		
+		
+		// Launch website
+		driver.navigate().to(URL);
+		driver.manage().window().maximize();
+				
 		//Click Input forms
 		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
 		Thread.sleep(3000);
