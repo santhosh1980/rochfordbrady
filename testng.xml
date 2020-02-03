@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" thread-count="2" parallel="tests">
-
-   <test name="FirefoxTest">
-   <parameter name="browserType" value="firefox" />
-      <classes>
-         <class name="SeleniumGrid.CrossBrowserTest" />
-      </classes>
-   </test>
-
-   <test name="ChromeTest">
-   <parameter name="browserType" value="chrome" />
-      <classes>
-         <class name="SeleniumGrid.CrossBrowserTest" />
-      </classes>
-   </test>
-      
-</suite>
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="newpack.myLawlinkWatchlist"/>
+      <class name="newpack.myLawlinkCRO"/>
+      <class name="example.testngsample"/>
+      <class name="newpack.myCIDLinksCheck"/>
+      <class name="newpack.myLawlinkBrokenLinks"/>
+      <class name="example.NewTestNGAnnotation"/>
+      <class name="example.NewTestNGPriority"/>
+      <class name="newpack.myLawlinkWinding"/>
+      <class name="example.Windowhandle"/>
+      <class name="newpack.myLawlinkDirector"/>
+      <class name="newpack.myCIDBrokenLinks"/>
+      <class name="newpack.myLawlinkSheriff"/>
+      <class name="example.Fileupload"/>
+      <class name="SeleniumGrid.CrossBrowserTest"/>
+      <class name="example.TestGuru99MultipleSession"/>
+      <class name="newpack.myLawlinkCompany"/>
+      <class name="example.TableRowandCell"/>
+      <class name="newpack.myLawlinkISIStandalone"/>
+      <class name="newpack.myLawlinkReceiverOfFine"/>
+      <class name="newpack.myLawlinkPlanning"/>
+      <class name="newpack.myCIDBankruptcy"/>
+      <class name="newpack.myCIDBusiness"/>
+      <class name="newpack.myLawlinkJudgement"/>
+      <class name="newpack.myLawLinkClosingOnlineOffline"/>
+      <class name="newpack.myCIDISIStandalone"/>
+      <class name="CaptureScreenshot.lawlinkscreenshot"/>
+      <class name="SeleniumGrid.TestGridClass"/>
+      <class name="newpack.myCIDWatchlist"/>
+      <class name="example.BrokenLinks"/>
+      <class name="newpack.myLawlinkBankruptcy"/>
+      <class name="newpack.myLawlinkLinksCheck"/>
+      <class name="newpack.myCIDJudgement"/>
+      <class name="example.POMLawLinkClosingOnlineOffline"/>
+      <class name="newpack.myCIDCompany"/>
+      <class name="newpack.myLawLinkClosingOnline"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
