@@ -23,10 +23,10 @@
 <!--       <class name="newpack.myLawlinkISIStandalone"/> -->
 <!--       <class name="newpack.myLawlinkReceiverOfFine"/> -->
 <!--       <class name="newpack.myLawlinkPlanning"/> -->
-<!--       <class name="newpack.myCIDBankruptcy"/> -->
+      <class name="newpack.myCIDBankruptcy"/>
 <!--       <class name="newpack.myCIDBusiness"/> -->
 <!--       <class name="newpack.myLawlinkJudgement"/> -->
-      <class name="newpack.myLawLinkClosingOnlineOffline"/>
+<!--       <class name="newpack.myLawLinkClosingOnlineOffline"/> -->
 <!--       <class name="newpack.myCIDISIStandalone"/> -->
 <!--       <class name="CaptureScreenshot.lawlinkscreenshot"/> -->
 <!--       <class name="SeleniumGrid.TestGridClass"/> -->
@@ -34,7 +34,7 @@
 <!--       <class name="example.BrokenLinks"/> -->
 <!--       <class name="newpack.myLawlinkBankruptcy"/> -->
 <!--       <class name="newpack.myLawlinkLinksCheck"/> -->
-<!--       <class name="newpack.myCIDJudgement"/> -->
+      <class name="newpack.myCIDJudgement"/>
 <!--       <class name="example.POMLawLinkClosingOnlineOffline"/> -->
 <!--       <class name="newpack.myCIDCompany"/> -->
 <!--       <class name="newpack.myLawLinkClosingOnline"/> -->
