@@ -129,6 +129,38 @@ public class myRBCID {
 
 	WebElement rbCIDContactUsLink;
 
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
+
+	WebElement rbCIDEmailSupportLink;
+
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[1]/a")
+
+	WebElement rbCIDEmailCostLink;
+
+	@FindBy(xpath = "//*[@id=\"address\"]/ul[3]/li[2]/a")
+
+	WebElement rbCIDEmailContactUsLink;
+
+	@FindBy(id = "emailAddress")
+
+	WebElement rbCIDCaptchaEmailAddress;
+
+	@FindBy(id = "emailSubject")
+
+	WebElement rbCIDCaptchaEmailSubject;
+
+	@FindBy(id = "emailContent")
+
+	WebElement rbCIDCaptchaEmailContent;
+
+	@FindBy(id = "captchaAnswer")
+
+	WebElement rbCIDCaptchaAnswer;
+
+	@FindBy(name = "Submit")
+
+	WebElement rbCIDCaptchaSubmit;
+
 	public myRBCID(WebDriver driver) {
 
 		this.driver = driver;
@@ -348,4 +380,59 @@ public class myRBCID {
 		rbCIDContactUsLink.click();
 	}
 
+	// Click CID Email Support Link
+
+	public void clickCIDEmailSupportLink() {
+
+		rbCIDEmailSupportLink.click();
+	}
+
+	// Click CID Email Cost Link
+
+	public void clickCIDEmailCostLink() {
+
+		rbCIDEmailCostLink.click();
+	}
+
+	// Click CID Email Contact Us Link
+
+	public void clickCIDEmailContactUsLink() {
+
+		rbCIDEmailContactUsLink.click();
+	}
+
+	// set captcha email address
+
+	public void setcaptchaemailaddress(String strcaptchaemailaddress) {
+
+		rbCIDCaptchaEmailAddress.sendKeys(strcaptchaemailaddress);
+	}
+
+	// set captcha email subject
+
+	public void setcaptchaemailsubject(String strcaptchaemailsubject) {
+
+		rbCIDCaptchaEmailSubject.sendKeys(strcaptchaemailsubject);
+	}
+
+	// set captcha email content
+
+	public void setcaptchaemailcontent(String strcaptchaemailcontent) {
+
+		rbCIDCaptchaEmailContent.sendKeys(strcaptchaemailcontent);
+	}
+
+	// set captcha answer
+
+	public void setcaptchaanswer(String strcaptchaanswer) {
+
+		rbCIDCaptchaAnswer.sendKeys(strcaptchaanswer);
+	}
+
+	// Click CID Captcha Submit
+
+	public void clickCIDCaptchaSubmit() {
+
+		rbCIDCaptchaSubmit.click();
+	}
 }

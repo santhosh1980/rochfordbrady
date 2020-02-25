@@ -199,6 +199,54 @@ public class myRBLawlink {
 
 	WebElement rbLawlinkContactUsLink;
 
+	@FindBy(xpath = "//*[@id=\"panel_col_1\"]/div[2]/p/a")
+
+	WebElement rbLawlinkEmailHomeLink;
+
+	@FindBy(xpath = "//*[@id=\"panel\"]/div[1]/p[3]/a")
+
+	WebElement rbLawlinkEmailCostLink;
+
+	@FindBy(xpath = "//*[@id=\"panel\"]/div[1]/p[2]/a")
+
+	WebElement rbLawlinkEmailSupportLink;
+
+	@FindBy(xpath = "//*[@id=\"panel_col_2\"]/p[4]/a")
+
+	WebElement rbLawlinkEmailContactUsSupportLink;
+
+	@FindBy(xpath = "//*[@id=\"panel_col_2\"]/p[5]/a")
+
+	WebElement rbLawlinkEmailContactUsReigstrationLink;
+
+	@FindBy(xpath = "//*[@id=\"panel_col_2\"]/p[6]/a")
+
+	WebElement rbLawlinkEmailContactUsBillingLink;
+
+	@FindBy(xpath = "//*[@id=\"panel\"]/div[1]/p[4]/a")
+
+	WebElement rbLawlinkEmailClosingSearchLink;
+	
+	@FindBy(id = "emailAddress")
+
+	WebElement rbLawlinkCaptchaEmailAddress;
+
+	@FindBy(id = "emailSubject")
+
+	WebElement rbLawlinkCaptchaEmailSubject;
+
+	@FindBy(id = "emailContent")
+
+	WebElement rbLawlinkCaptchaEmailContent;
+
+	@FindBy(id = "captchaAnswer")
+
+	WebElement rbLawlinkCaptchaAnswer;
+
+	@FindBy(name = "Submit")
+
+	WebElement rbLawlinkCaptchaSubmit;
+
 	public myRBLawlink(WebDriver driver) {
 
 		this.driver = driver;
@@ -537,4 +585,88 @@ public class myRBLawlink {
 
 		rbLawlinkContactUsLink.click();
 	}
+
+	// Click Lawlink Email Home Link
+
+	public void clickLawlinkEmailHomeLink() {
+
+		rbLawlinkEmailHomeLink.click();
+	}
+
+	// Click Lawlink Email Cost Link
+
+	public void clickLawlinkEmailCostLink() {
+
+		rbLawlinkEmailCostLink.click();
+	}
+
+	// Click Lawlink Email Support Link
+
+	public void clickLawlinkEmailSupportLink() {
+
+		rbLawlinkEmailSupportLink.click();
+	}
+
+	// Click Lawlink Email Contact Us Support Link
+
+	public void clickLawlinkEmailContactUsSupportLink() {
+
+		rbLawlinkEmailContactUsSupportLink.click();
+	}
+
+	// Click Lawlink Email Contact Us Register Link
+
+	public void clickLawlinkEmailContactUsRegistrationLink() {
+
+		rbLawlinkEmailContactUsReigstrationLink.click();
+	}
+
+	// Click Lawlink Email Contact Us Billing Link
+
+	public void clickLawlinkEmailContactUsBillingLink() {
+
+		rbLawlinkEmailContactUsBillingLink.click();
+	}
+
+	// Click Lawlink Email Closing Search Link
+
+	public void clickLawlinkEmailClosingSearchLink() {
+
+		rbLawlinkEmailClosingSearchLink.click();
+	}
+	
+	// set captcha email address
+
+		public void setcaptchaemailaddress(String strcaptchaemailaddress) {
+
+			rbLawlinkCaptchaEmailAddress.sendKeys(strcaptchaemailaddress);
+		}
+
+		// set captcha email subject
+
+		public void setcaptchaemailsubject(String strcaptchaemailsubject) {
+
+			rbLawlinkCaptchaEmailSubject.sendKeys(strcaptchaemailsubject);
+		}
+
+		// set captcha email content
+
+		public void setcaptchaemailcontent(String strcaptchaemailcontent) {
+
+			rbLawlinkCaptchaEmailContent.sendKeys(strcaptchaemailcontent);
+		}
+
+		// set captcha answer
+
+		public void setcaptchaanswer(String strcaptchaanswer) {
+
+			rbLawlinkCaptchaAnswer.sendKeys(strcaptchaanswer);
+		}
+
+		// Click CID Captcha Submit
+
+		public void clickCIDCaptchaSubmit() {
+
+			rbLawlinkCaptchaSubmit.click();
+		}
 }
