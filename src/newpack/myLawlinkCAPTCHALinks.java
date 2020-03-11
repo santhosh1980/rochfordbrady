@@ -3,11 +3,13 @@ package newpack;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.tools.ant.taskdefs.Input;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import junit.framework.Assert;
 import lib.ExcelDataConfig;
@@ -185,11 +187,16 @@ public class myLawlinkCAPTCHALinks {
 				
 				//Click Submit
 				
+						
 				rblawlink.clickCIDCaptchaSubmit();
 				
 				Thread.sleep(3000);
 				
-				String thankyoutext = "Support\n" + 
+				
+				
+				String[] heading = {"Lawlink", "Costs", "Support", "Contact Us","Contact Us","Contact Us","Closing Search"};
+				
+				String thankyoutext = heading[i]+"\n" + 
 						"Thank you for your feedback.\n" + 
 						"One of our representatives will contact you shortly.";
 				
@@ -197,14 +204,18 @@ public class myLawlinkCAPTCHALinks {
 				
 				String bodytext2=driver.findElement(By.id("sub_content")).getText();
 				
-				if(bodytext2.contains(thankyoutext))
+				Assert.assertEquals(thankyoutext, bodytext2);
+				
+				
+				
+				/*if(bodytext2.contains(thankyoutext))
 				{
 					System.out.println("Thank you text matches");
 				}
 				else
 				{
 					System.out.println("Thank you text not matches");
-				}
+				}*/
 				
 				driver.quit();
 

@@ -124,7 +124,9 @@ public class myCIDCAPTCHALinks {
 				
 				Thread.sleep(3000);
 				
-				String thankyoutext = "Support\n" + 
+				String[] heading = {"Support", "CID", "Contact Us"};
+				
+				String thankyoutext = heading[i]+"\n" + 
 						"Thank you for your feedback.\n" + 
 						"One of our representatives will contact you shortly.";
 				
