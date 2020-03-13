@@ -161,6 +161,10 @@ public class myRBCID {
 
 	WebElement rbCIDCaptchaSubmit;
 
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
+
+	WebElement rbCIDCaptchaGoBack;
+
 	public myRBCID(WebDriver driver) {
 
 		this.driver = driver;
@@ -434,5 +438,12 @@ public class myRBCID {
 	public void clickCIDCaptchaSubmit() {
 
 		rbCIDCaptchaSubmit.click();
+	}
+
+	// Click CID Captcha Go back
+
+	public void clickCIDCaptchaGoBack() {
+
+		rbCIDCaptchaGoBack.click();
 	}
 }
