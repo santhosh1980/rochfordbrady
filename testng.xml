@@ -33,7 +33,7 @@
 <!--       <class name="newpack.myCIDBusiness"/> -->
 <!--       <class name="newpack.myLawlinkJudgement"/> -->
 <!--       <class name="example.DragAndDropDemo"/> -->
-<!--       <class name="newpack.myLawLinkClosingOnlineOffline"/> -->
+      <class name="newpack.myLawLinkClosingOnlineOffline"/>
 <!--       <class name="newpack.myCIDISIStandalone"/> -->
 <!--       <class name="CaptureScreenshot.lawlinkscreenshot"/> -->
 <!--       <class name="SeleniumGrid.TestGridClass"/> -->

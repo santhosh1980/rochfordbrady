@@ -204,7 +204,7 @@ public class myLawlinkCAPTCHAFORMValidate {
 						"There was an error processing your feedback.\n" + 
 						"You must enter Email Address\n" + 
 						"You must enter Subject\n" + 
-						"You mst enter Comments\n" + 
+						"You must enter Comments\n" + 
 						"You must enter the text as shown in the image\n" + 
 						"Go back";
 						
@@ -213,8 +213,6 @@ public class myLawlinkCAPTCHAFORMValidate {
 				String actualerror = driver.findElement(By.id("sub_content")).getText();
 				
 				Assert.assertEquals(actualerror, expectederror);
-				
-				
 				
 				System.out.println("error text matches");
 				
