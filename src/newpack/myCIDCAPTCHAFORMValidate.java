@@ -130,6 +130,8 @@ public class myCIDCAPTCHAFORMValidate {
 				
 				System.out.println("error text matches");
 				
+				utility.screenshotcapture(driver, "CIDCaptcha");
+				
 				/*if(actualerror.contains(expectederror))
 				{
 					System.out.println("error text matches");

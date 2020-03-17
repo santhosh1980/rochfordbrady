@@ -1,0 +1,8 @@
+1) Stop Jenkins service - Open Command Prompt as Administrator in Windows . Go to the directory where Jenkins is installed. and stop the Jenkins service first, using java -jar jenkins.war stop
+2) Change port number - Open the jenkins.model.JenkinsLocationConfiguration.xml in Jenkins home folder and change the port number
+3) Restart Jenkins service - Open Command Prompt as Administrator in Windows . Go to the directory where Jenkins is installed. and restart the Jenkins java -jar jenkins.war restart
+
+OR
+
+1) Set a new port through command prompt: java -jar jenkins.war --httpPort=9092 (look at different commands available in jenkins using java -jar jenkins.war --help)
+

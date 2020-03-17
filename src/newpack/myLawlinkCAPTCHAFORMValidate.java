@@ -18,10 +18,10 @@ import pagefactory.myRBCID;
 import pagefactory.myRBLawlink;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCAPTCHALinks {
+public class myLawlinkCAPTCHAFORMValidate {
 
 	@Test
-	public void myCIDCAPTCHALinksViewResults() throws Exception {
+	public void myLawlinkCAPTCHAFORMValidateViewResults() throws Exception {
 		// to use chrome
 		try {
 			WebDriver driver;
@@ -69,6 +69,10 @@ public class myLawlinkCAPTCHALinks {
 					
 					Thread.sleep(5000);
 					
+					//Click Submit
+										
+					rblawlink.clickLawlinkCaptchaSubmit();
+					
 				}
 				else if (i==1)  {
 					
@@ -83,6 +87,10 @@ public class myLawlinkCAPTCHALinks {
 					rblawlink.clickLawlinkEmailCostLink();
 					
 					Thread.sleep(5000);
+					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
 					
 				}
 				
@@ -100,6 +108,10 @@ public class myLawlinkCAPTCHALinks {
 					
 					Thread.sleep(5000);
 					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
+					
 				}
 				
 				else if (i==3)  {
@@ -115,6 +127,10 @@ public class myLawlinkCAPTCHALinks {
 					rblawlink.clickLawlinkEmailContactUsSupportLink();
 					
 					Thread.sleep(5000);
+					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
 					
 				}
 				
@@ -132,6 +148,10 @@ public class myLawlinkCAPTCHALinks {
 					
 					Thread.sleep(5000);
 					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
+					
 				}
 				
 				else if (i==5)  {
@@ -147,6 +167,10 @@ public class myLawlinkCAPTCHALinks {
 					rblawlink.clickLawlinkEmailContactUsBillingLink();
 					
 					Thread.sleep(5000);
+					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
 					
 				}
 				
@@ -164,59 +188,44 @@ public class myLawlinkCAPTCHALinks {
 					
 					Thread.sleep(5000);
 					
+					//Click Submit
+					
+					rblawlink.clickLawlinkCaptchaSubmit();
+					
 				}
 				
 				
-				//Enter CAPTCHA Form Email 
-				
-				rblawlink.setcaptchaemailaddress(excel.getData(12, i, 0));
-				
-				//Enter CAPTCHA Form Subject
-				
-				rblawlink.setcaptchaemailsubject(excel.getData(12, i, 1));
-				
-				//Enter CAPTCHA Form Comments
-				
-				rblawlink.setcaptchaemailcontent(excel.getData(12, i, 2));
-				
-				Thread.sleep(15000);
-				
-				//Enter CAPTCHA WORD
+							
 				
 				
+				String[] errorhead = {"Lawlink", "Costs", "Support", "Contact Us","Contact Us","Contact Us","Closing Search"};
 				
-				//Click Submit
-				
+				String expectederror = errorhead[i]+"\n" + 
+						"There was an error processing your feedback.\n" + 
+						"You must enter Email Address\n" + 
+						"You must enter Subject\n" + 
+						"You mst enter Comments\n" + 
+						"You must enter the text as shown in the image\n" + 
+						"Go back";
 						
-				rblawlink.clickLawlinkCaptchaSubmit();
+						
 				
-				Thread.sleep(3000);
+				String actualerror = driver.findElement(By.id("sub_content")).getText();
 				
-				
-				
-				String[] heading = {"Lawlink", "Costs", "Support", "Contact Us","Contact Us","Contact Us","Closing Search"};
-				
-				String thankyoutext = heading[i]+"\n" + 
-						"Thank you for your feedback.\n" + 
-						"One of our representatives will contact you shortly.";
-				
-				//String bodytext1=driver.findElement(By.tagName("body")).getText();
-				
-				String bodytext2=driver.findElement(By.id("sub_content")).getText();
-				
-				Assert.assertEquals(thankyoutext, bodytext2);
+				Assert.assertEquals(actualerror, expectederror);
 				
 				
 				
-				/*if(bodytext2.contains(thankyoutext))
-				{
-					System.out.println("Thank you text matches");
-				}
-				else
-				{
-					System.out.println("Thank you text not matches");
-				}*/
+				System.out.println("error text matches");
 				
+				utility.screenshotcapture(driver, "LawlinkCaptcha");
+				
+				//Click Go back
+				
+				rblawlink.clickLawlinkCaptchaGoBack();
+				
+							
+						
 				driver.quit();
 
 				System.out.println("Browser closed");

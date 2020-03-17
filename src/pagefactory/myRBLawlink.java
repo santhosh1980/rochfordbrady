@@ -226,7 +226,7 @@ public class myRBLawlink {
 	@FindBy(xpath = "//*[@id=\"panel\"]/div[1]/p[4]/a")
 
 	WebElement rbLawlinkEmailClosingSearchLink;
-	
+
 	@FindBy(id = "emailAddress")
 
 	WebElement rbLawlinkCaptchaEmailAddress;
@@ -246,6 +246,10 @@ public class myRBLawlink {
 	@FindBy(name = "Submit")
 
 	WebElement rbLawlinkCaptchaSubmit;
+
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
+
+	WebElement rbLawlinkCaptchaGoBack;
 
 	public myRBLawlink(WebDriver driver) {
 
@@ -634,39 +638,46 @@ public class myRBLawlink {
 
 		rbLawlinkEmailClosingSearchLink.click();
 	}
-	
+
 	// set captcha email address
 
-		public void setcaptchaemailaddress(String strcaptchaemailaddress) {
+	public void setcaptchaemailaddress(String strcaptchaemailaddress) {
 
-			rbLawlinkCaptchaEmailAddress.sendKeys(strcaptchaemailaddress);
-		}
+		rbLawlinkCaptchaEmailAddress.sendKeys(strcaptchaemailaddress);
+	}
 
-		// set captcha email subject
+	// set captcha email subject
 
-		public void setcaptchaemailsubject(String strcaptchaemailsubject) {
+	public void setcaptchaemailsubject(String strcaptchaemailsubject) {
 
-			rbLawlinkCaptchaEmailSubject.sendKeys(strcaptchaemailsubject);
-		}
+		rbLawlinkCaptchaEmailSubject.sendKeys(strcaptchaemailsubject);
+	}
 
-		// set captcha email content
+	// set captcha email content
 
-		public void setcaptchaemailcontent(String strcaptchaemailcontent) {
+	public void setcaptchaemailcontent(String strcaptchaemailcontent) {
 
-			rbLawlinkCaptchaEmailContent.sendKeys(strcaptchaemailcontent);
-		}
+		rbLawlinkCaptchaEmailContent.sendKeys(strcaptchaemailcontent);
+	}
 
-		// set captcha answer
+	// set captcha answer
 
-		public void setcaptchaanswer(String strcaptchaanswer) {
+	public void setcaptchaanswer(String strcaptchaanswer) {
 
-			rbLawlinkCaptchaAnswer.sendKeys(strcaptchaanswer);
-		}
+		rbLawlinkCaptchaAnswer.sendKeys(strcaptchaanswer);
+	}
 
-		// Click CID Captcha Submit
+	// Click Lawlink Captcha Submit
 
-		public void clickCIDCaptchaSubmit() {
+	public void clickLawlinkCaptchaSubmit() {
 
-			rbLawlinkCaptchaSubmit.click();
-		}
+		rbLawlinkCaptchaSubmit.click();
+	}
+
+	// Click Lawlink Captcha Go back
+
+	public void clickLawlinkCaptchaGoBack() {
+
+		rbLawlinkCaptchaGoBack.click();
+	}
 }
