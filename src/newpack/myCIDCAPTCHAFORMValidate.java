@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import junit.framework.Assert;
 import lib.ExcelDataConfig;
@@ -126,9 +127,19 @@ public class myCIDCAPTCHAFORMValidate {
 				
 				String actualerror = driver.findElement(By.id("sub_content")).getText();
 				
-				Assert.assertEquals(expectederror, actualerror);
+				//Assert.assertEquals(expectederror, actualerror);
 				
-				System.out.println("error text matches");
+				//System.out.println("error text matches");
+				
+				SoftAssert softassert = new SoftAssert();
+				
+					
+				softassert.assertEquals(actualerror, expectederror);
+				
+				System.out.println("Line of code execute even assertion fails");
+				
+								
+				
 				
 				utility.screenshotcapture(driver, "CIDCaptcha");
 				

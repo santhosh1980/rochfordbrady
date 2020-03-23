@@ -24,7 +24,7 @@ public class BrokenLinks {
 
 		driver.manage().window().maximize();
 
-		String baseurl = "https://qa.cid.ie";
+		String baseurl = "https://qa.lawlink.ie";
 
 		String url = "";
 
