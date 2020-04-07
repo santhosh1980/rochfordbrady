@@ -44,5 +44,17 @@
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/pdbox 2.0.11/pdfbox-2.0.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/Screenshot full webpage jar/ashot-1.5.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/Selenium Server (Grid)-3.141.59/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/bson-3.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/extentreports-3.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/mongodb-driver-3.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/U35035/eclipse-workspace/myrbtest/mylib/extentreport_jar_files/mongodb-driver-core-3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

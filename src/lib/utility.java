@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -85,6 +86,37 @@ public class utility {
 		} catch (Exception e) {
 			System.out.println("Exception while taking screenshot" + e.getMessage());
 		}
+
+	}
+	
+	public static String extendedscreenshotcapture(WebDriver driver, String screenshotname) {
+		
+		String path=null;
+
+		try {
+
+			TakesScreenshot ts = (TakesScreenshot) driver;
+
+			File source = ts.getScreenshotAs(OutputType.FILE);
+			
+			path = System.getProperty("user.dir") + "/screenshot/" + screenshotname + String.valueOf(LocalDateTime.now()).replace(":", ".") + ".png";
+			
+			//path=System.getProperty("user.dir")+"/Screenshot/"+System.currentTimeMillis()+".png";
+			
+			File destination = new File(path);
+
+			FileUtils.copyFile(source, destination);
+			
+			
+
+			
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot" + e.getMessage());
+		}
+		
+		return path;
+		
+		
 
 	}
 
