@@ -1,6 +1,12 @@
 package newpack;
 
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +39,10 @@ public class myLawLinkClosingOnlineOffline {
 		WebDriver driver = null;
 
 		WebDriverWait mywaitvar = null;
+		
+		ExtentReports extent;
+		
+		ExtentTest logger1;
 
 		Logger log = Logger.getLogger("");
 
@@ -57,6 +67,14 @@ public class myLawLinkClosingOnlineOffline {
 
 
 		// utility.dbconnect();
+		
+		ExtentHtmlReporter reporter = new ExtentHtmlReporter("./Reports/ExtendedReportmain.html");
+		  
+		extent = new ExtentReports();
+		  
+		extent.attachReporter(reporter);
+		  
+		logger1 = extent.createTest("Closing deeds search");
 
 		try {
 
@@ -100,6 +118,8 @@ public class myLawLinkClosingOnlineOffline {
 				driver.get(baseurl);
 
 				log.debug("Opening website");
+				
+				logger1.log(Status.PASS, "Lawlink Website opened");
 
 				// driver.findElement(By.xpath("//*[@id=\"header_right\"]/p/span/a")).click();
 
@@ -112,6 +132,8 @@ public class myLawLinkClosingOnlineOffline {
 				// WebElement pass=driver.findElement(By.id("password"));
 
 				log.debug("Opening Login screen");
+				
+				
 
 				// pass credential and submit
 				
@@ -145,6 +167,8 @@ public class myLawLinkClosingOnlineOffline {
 				// driver.findElement(By.xpath("//*[@id=\"loginpanel\"]/form/p[3]/a/img")).click();
 
 				rb.clicklawlinklogin();
+				
+				logger1.log(Status.PASS, "Lawlink successfully logged in");
 
 				// click closing search button
 				Thread.sleep(5000);
@@ -154,6 +178,8 @@ public class myLawLinkClosingOnlineOffline {
 				rblawlink.clickLawlinkClosingSearchlink();
 
 				log.debug("Clicking Closing search button");
+				
+				
 
 				// capture screenshot 1
 
@@ -171,7 +197,7 @@ public class myLawLinkClosingOnlineOffline {
 				// driver.findElement(By.id("chkJudg")).click();
 
 				rblawlink.selectLawlinkClosingCheckJudgBox();
-
+				
 				// driver.findElement(By.id("chkDeeds")).click();
 
 				rblawlink.selectLawlinkClosingCheckDeedsBox();
@@ -323,14 +349,19 @@ public class myLawLinkClosingOnlineOffline {
 				// Write to Excel - PDF URL
 
 				String pdfurl = utility.getPDFURL(driver);
-
+				
 				excel.writeData(1, i, 21, pdfurl);
+				
+				logger1.log(Status.PASS, "Closing search PDF generated");
 
 				// Download PDF
 
 				// utility.downloadPDF(driver);
 
 				// close chrome
+				
+				extent.flush();
+				
 				driver.quit();
 
 				System.out.println("Browser closed");
