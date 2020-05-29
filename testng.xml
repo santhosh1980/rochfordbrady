@@ -23,7 +23,7 @@
 <!--       <class name="newpack.myLawlinkCAPTCHALinks"/> -->
 <!--       <class name="SeleniumGrid.CrossBrowserTest"/> -->
 <!--       <class name="example.TestGuru99MultipleSession"/> -->
-<!--       <class name="newpack.myCID3in1"/> -->
+      <class name="newpack.myCID3in1"/>
 <!--       <class name="newpack.myLawlinkCompany"/> -->
 <!--       <class name="example.TableRowandCell"/> -->
 <!--       <class name="newpack.myLawlinkISIStandalone"/> -->
@@ -34,7 +34,7 @@
 <!--       <class name="example.Testtooltip"/> -->
 <!--       <class name="newpack.myLawlinkJudgement"/> -->
 <!--       <class name="example.DragAndDropDemo"/> -->
-      <class name="newpack.myLawLinkClosingOnlineOffline"/>
+<!--       <class name="newpack.myLawLinkClosingOnlineOffline"/> -->
 <!--       <class name="newpack.myCIDISIStandalone"/> -->
 <!--       <class name="CaptureScreenshot.lawlinkscreenshot"/> -->
 <!--       <class name="SeleniumGrid.TestGridClass"/> -->
