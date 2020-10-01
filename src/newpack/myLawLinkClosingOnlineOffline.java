@@ -101,11 +101,11 @@ public class myLawLinkClosingOnlineOffline {
 
 				// base url
 
-				// String baseurl="https://qa.lawlink.ie";
+				 String baseurl="https://qa.lawlink.ie";
 
 				// BVT
 
-				String baseurl = excel.getData(4, 0, 0);
+				//String baseurl = excel.getData(4, 0, 0);
 
 				// UAT
 
@@ -113,7 +113,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				// Staging
 
-				 //String baseurl=excel.getData(4, 0, 2);
+				//String baseurl=excel.getData(4, 0, 2);
 
 				driver.get(baseurl);
 
