@@ -126,8 +126,12 @@ public class myCIDCompany {
 				driver.findElement(By.xpath("//*[@id=\"topLinks\"]/tbody/tr[3]/td[2]/a")).click();
 
 				Thread.sleep(5000);
+				
+				// Write to Excel - PDF URL
+				
+				//String pdfurl = utility.getPDFURL(driver);
 
-				// excel.writeData(0, i, 3);
+				 //excel.writeData(1, i, 21, pdfurl);
 
 				// close chrome
 				driver.quit();
