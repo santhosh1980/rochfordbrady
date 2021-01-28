@@ -46,6 +46,7 @@ public class myLawLinkClosingOnlineOffline {
 
 		Logger log = Logger.getLogger("");
 
+		
 		String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
 
 		String datapath = "C:\\Users\\U35035\\eclipse-workspace\\Data\\TestDataOnlineOffline.xlsx";
