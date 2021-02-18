@@ -250,6 +250,22 @@ public class myRBLawlink {
 	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
 
 	WebElement rbLawlinkCaptchaGoBack;
+	
+	@FindBy(xpath="//*[@id=\"leftmenu\"]/ul[1]/li[1]/a")
+	
+	WebElement rbLawlinkCompanyCompanyLink;
+	
+	@FindBy(xpath="//*[@id=\"leftmenu\"]/ul[1]/li[3]/a")
+	
+	WebElement rbLawlinkCompanyBusinessLink;
+	
+	@FindBy(xpath="//*[@id=\"panel\"]/div[1]/table/tbody/tr/td[1]/a")
+	
+	WebElement rbLawlinkBusinessNumberLink;
+	
+	@FindBy(name="acceptCharge")
+	
+	WebElement rbLawlinkAcceptChargeLink;
 
 	public myRBLawlink(WebDriver driver) {
 
@@ -679,5 +695,33 @@ public class myRBLawlink {
 	public void clickLawlinkCaptchaGoBack() {
 
 		rbLawlinkCaptchaGoBack.click();
+	}
+	
+	// Click Lawlink Company/Business - Company Link
+
+	public void clickLawlinkCompanyCompanylink() {
+
+		rbLawlinkCompanyCompanyLink.click();
+	}
+	
+	// Click Lawlink Company/Business - Business Link
+
+	public void clickLawlinkCompanyBusinesslink() {
+
+		rbLawlinkCompanyBusinessLink.click();
+	}
+	
+	// Click Lawlink Company/Business - Business Number Link from search results
+
+	public void clickLawlinkBusinessNumberlink() {
+
+		rbLawlinkBusinessNumberLink.click();
+	}
+	
+	// Click Lawlink Company/Business - Accept Charge Link 
+
+	public void clickLawlinkAcceptChargelink() {
+
+			rbLawlinkAcceptChargeLink.click();
 	}
 }

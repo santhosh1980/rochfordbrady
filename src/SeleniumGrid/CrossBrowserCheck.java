@@ -17,7 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 
-public class CrossBrowserTest {
+public class CrossBrowserCheck {
   
 	public WebDriver driver;
 	public String URL = "https://www.seleniumeasy.com/test/";
@@ -51,6 +51,9 @@ public class CrossBrowserTest {
 		// Launch website
 		driver.navigate().to(URL);
 		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		driver.findElement(By.id("at-cv-lightbox-close")).click();
+		
 				
 		//Click Input forms
 		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
