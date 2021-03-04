@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,8 @@ public class BrokenLinks {
 	public void BrokenLinksResults() throws Exception {
 
 		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		String baseurl = "https://qa.lawlink.ie";
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class myRBLawlink {
 
@@ -266,6 +267,22 @@ public class myRBLawlink {
 	@FindBy(name="acceptCharge")
 	
 	WebElement rbLawlinkAcceptChargeLink;
+	
+	@FindBy(xpath="//*[@id=\"leftmenu\"]/ul[1]/li[5]/a")
+	
+	WebElement rbLawlinkCompanyDocumentLink;
+	
+	@FindBy(name = "documentGroup")
+
+	WebElement rbLawlinkDocumentType;
+	
+	@FindBy(name="Submit")
+	
+	WebElement rbLawlinkAcceptChargeSubmit;
+	
+	@FindBy(name="docButton")
+	
+	WebElement rbLawlinkDocumentOrder;
 
 	public myRBLawlink(WebDriver driver) {
 
@@ -723,5 +740,34 @@ public class myRBLawlink {
 	public void clickLawlinkAcceptChargelink() {
 
 			rbLawlinkAcceptChargeLink.click();
+	}
+	
+	// Click Lawlink Company/Business - Document Link
+
+	public void clickLawlinkCompanyDocumentlink() {
+
+			rbLawlinkCompanyDocumentLink.click();
+	}
+	
+	// Select Document type
+
+	public void selectdocumenttype() {
+			
+		Select doctypedropdown = new Select(rbLawlinkDocumentType);
+			doctypedropdown.selectByVisibleText("ANNUAL RETURNS");
+	}
+	
+	// Click Lawlink Company/Business - Accept Charge Submit Link 
+
+	public void clickLawlinkAcceptChargeSubmitlink() {
+
+			rbLawlinkAcceptChargeSubmit.click();
+	}
+	
+	// Click Lawlink Company/Business - Document Order Link 
+
+	public void clickLawlinkDocumentOrderlink() {
+
+			rbLawlinkDocumentOrder.click();
 	}
 }

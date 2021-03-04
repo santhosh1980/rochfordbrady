@@ -168,6 +168,8 @@ public class myCIDBankruptcy {
 
 			List<WebElement> elements = driver.findElements(By.xpath(".//*[starts-with(@name,'namesCheckBox')]"));
 
+			
+			
 			int numberofelements = elements.size();
 
 			for (int k = 1; k <= numberofelements; k++) {
