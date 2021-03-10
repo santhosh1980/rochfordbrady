@@ -12,13 +12,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import junit.framework.Assert;
 import lib.ExcelDataConfig;
 import lib.utility;
 import pagefactory.myRBLawlink;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCompanyViewDocument {
+public class myLawlinkCompanyViewAllDocuments {
 
 	@Test
 	public void myLawlinkCompanyViewDocumentViewResults() throws Exception {
@@ -56,7 +57,7 @@ public class myLawlinkCompanyViewDocument {
 
 				// base url
 
-				String baseurl = "https://qa.lawlink.ie";
+				String baseurl = "https://uat.lawlink.ie";
 
 				driver.get(baseurl);
 
@@ -124,8 +125,7 @@ public class myLawlinkCompanyViewDocument {
 
 				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
 
-				
-				
+								
 				
 				//List<WebElement> imageboxes = driver.findElements(By.xpath(".//*[starts-with(@type,'checkbox')]"));
 				
@@ -153,6 +153,17 @@ public class myLawlinkCompanyViewDocument {
 					
 					rblawlink.clickLawlinkDocumentOrderlink();
 					
+					//Assert the text for Number of Image boxes selected for viewing
+					
+					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p")).getText();
+					
+					System.out.println(imagetotaltext);
+					
+					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
+					
+					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+					
+					
 					//Click Accept charge submit link
 					
 					rblawlink.clickLawlinkAcceptChargeSubmitlink();
@@ -165,7 +176,7 @@ public class myLawlinkCompanyViewDocument {
 					
 					System.out.println("Number of Image links available are:" + numberofimagelinks);
 					
-					//Select all imagelinks
+					//Click each image link one by one and capture screenshots
 					for(int k=1; k<=numberofimagelinks; k++) {
 						
 							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
@@ -175,6 +186,9 @@ public class myLawlinkCompanyViewDocument {
 							utility.fullscreenshotcapture(driver, submissionno);
 							driver.navigate().back();
 					}
+					
+					
+					
 					
 				}
 					

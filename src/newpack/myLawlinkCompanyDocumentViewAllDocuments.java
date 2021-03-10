@@ -1,5 +1,6 @@
 package newpack;
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -7,15 +8,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import junit.framework.Assert;
 import lib.ExcelDataConfig;
 import lib.utility;
 import pagefactory.myRBLawlink;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCompanyDocument {
+public class myLawlinkCompanyDocumentViewAllDocuments {
 
 	@Test
 	public void myLawlinkCompanyDocumentViewResults() throws Exception {
@@ -23,6 +27,8 @@ public class myLawlinkCompanyDocument {
 		try {
 
 			WebDriver driver;
+			
+			WebDriverWait mywaitvar = null;
 
 			String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
 
@@ -116,9 +122,71 @@ public class myLawlinkCompanyDocument {
 				
 				rblawlink.clickLawlinkCaptchaSubmit();
 				
-				
+				mywaitvar = new WebDriverWait(driver, 80);
 
-				Thread.sleep(5000);
+				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
+				
+				//Get the count of image checkboxes
+				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
+				int numberofimageboxes = imageboxes.size();
+				
+				if (numberofimageboxes>0)
+				{
+					
+					System.out.println("Number of Image checkboxed available are:" + numberofimageboxes);
+					
+					//Select all checkboxes
+					for(WebElement ele : imageboxes) {
+						
+						if(!(ele.isSelected())) {
+							ele.click();
+						}
+					}
+					
+					//Click Document Order button
+					
+					rblawlink.clickLawlinkDocumentOrderlink();
+
+					Thread.sleep(5000);
+					
+					//Assert the text for Number of Image boxes selected for viewing
+					
+					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p")).getText();
+					
+					System.out.println(imagetotaltext);
+					
+					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
+					
+					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+					
+					
+					//Click Accept charge submit link
+					
+					rblawlink.clickLawlinkAcceptChargeSubmitlink();
+					
+					
+					//Get the count of imagelinks
+					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.orange-list li"));
+					int numberofimagelinks = imagelinks.size();
+					
+					System.out.println("Number of Image links available are:" + numberofimagelinks);
+					
+					//Click each image link one by one and capture screenshots
+					for(int k=1; k<=numberofimagelinks; k++) {
+						
+							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
+							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
+							
+							Thread.sleep(5000);
+							utility.fullscreenshotcapture(driver, submissionno);
+							driver.navigate().back();
+					}
+					
+				}
+				
+				else
+				{
+					
 				
 				//Click PDF link
 
@@ -127,6 +195,8 @@ public class myLawlinkCompanyDocument {
 				rblawlink.clickLawlinkJudgementPDFLink();
 
 				Thread.sleep(5000);
+				
+				}
 
 				// excel.writeData(0, i, 3);
 

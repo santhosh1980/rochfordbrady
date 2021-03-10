@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class myRBCID {
 
@@ -164,6 +165,32 @@ public class myRBCID {
 	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
 
 	WebElement rbCIDCaptchaGoBack;
+	
+	@FindBy(name="acceptCharge")
+
+	WebElement rbCIDAcceptCharge;
+	
+	@FindBy(name="docButton")
+
+	WebElement rbCIDDocumentOrder;
+	
+	@FindBy(xpath="//*[@id=\"sub_content\"]/form/table/tbody/tr[4]/td[2]/input")
+
+	WebElement rbCIDAcceptChargeSubmit;
+	
+	@FindBy(xpath = "//*[@id=\"left_menu\"]/ul/li[3]/a")
+
+	WebElement rbCIDDocumentLink;
+	
+	@FindBy(name="documentGroup")
+
+	WebElement rbCIDDocumentType;
+	
+	@FindBy(xpath = "//*[@id=\"form1\"]/table/tbody/tr[4]/td[2]/input[1]")
+
+	WebElement rbCIDDocumentSearch;
+	
+	
 
 	public myRBCID(WebDriver driver) {
 
@@ -439,11 +466,55 @@ public class myRBCID {
 
 		rbCIDCaptchaSubmit.click();
 	}
-
+	
 	// Click CID Captcha Go back
 
 	public void clickCIDCaptchaGoBack() {
 
-		rbCIDCaptchaGoBack.click();
+			rbCIDCaptchaGoBack.click();
+	}
+
+	// Click CID Accept Charge
+
+	public void clickCIDAcceptCharge() {
+
+		rbCIDAcceptCharge.click();
+	}
+	
+	// Click CID Document Order
+
+	public void clickCIDDocumentOrder() {
+
+		rbCIDDocumentOrder.click();
+	}
+	
+	// Click CID Accept Charge Submit
+
+	public void clickCIDAcceptChargeSubmit() {
+
+			rbCIDAcceptChargeSubmit.click();
+	}
+		
+	
+	// Click CID Document link
+
+	public void clickCIDDocumentLink() {
+
+			rbCIDDocumentLink.click();
+	}
+	
+	// Select Document type
+
+	public void setdocumenttype(String doctype) {
+			
+		Select doctypedropdown = new Select(rbCIDDocumentType);
+			doctypedropdown.selectByVisibleText(doctype);
+	}
+	
+	// Click CID Document Search button
+
+	public void clickCIDDocumentSearchLink() {
+
+			rbCIDDocumentSearch.click();
 	}
 }

@@ -751,10 +751,10 @@ public class myRBLawlink {
 	
 	// Select Document type
 
-	public void selectdocumenttype() {
+	public void setdocumenttype(String doctype) {
 			
 		Select doctypedropdown = new Select(rbLawlinkDocumentType);
-			doctypedropdown.selectByVisibleText("ANNUAL RETURNS");
+			doctypedropdown.selectByVisibleText(doctype);
 	}
 	
 	// Click Lawlink Company/Business - Accept Charge Submit Link 

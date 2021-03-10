@@ -1,5 +1,6 @@
 package newpack;
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -7,18 +8,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import junit.framework.Assert;
 import lib.ExcelDataConfig;
 import lib.utility;
 import pagefactory.myRBCID;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myCIDCompany {
+public class myCIDDocumentViewAllDocuments {
 
 	@Test
-	public void myCIDCompanyViewResults() throws Exception {
+	public void myCIDCompanyViewDocumentViewResults() throws Exception {
 		// to use chrome
 		try {
 
@@ -38,21 +42,23 @@ public class myCIDCompany {
 			for (int i = 0; i <= excel.getrownum(1); i++) {
 
 				driver = new ChromeDriver();
+				
+				WebDriverWait mywaitvar = null;
 
 				myRBlogin rb = new myRBlogin(driver);
 				
 				myRBcommon rbcom = new myRBcommon(driver);
 				
 				myRBCID rbcid = new myRBCID(driver);
-
-
+				
+				
 				driver.manage().window().maximize();
 				
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 				// base url
 
-				String baseurl = "https://qa.cid.ie";
+				String baseurl = "https://uat.cid.ie";
 
 				driver.get(baseurl);
 
@@ -90,7 +96,7 @@ public class myCIDCompany {
 				
 				rbcid.clickCIDlink();
 				
-				rbcid.clickCIDCompanyLink();
+				rbcid.clickCIDDocumentLink();
 
 				// Pass search values and click search button
 
@@ -111,16 +117,85 @@ public class myCIDCompany {
 
 				//driver.findElement(By.xpath("//*[@id=\"form1\"]/table/tbody/tr[14]/td[2]/input[1]")).click();
 				
-				rbcid.clickCIDCompanySearchLink();
-
-				// Click accept charge button
-
-				//driver.findElement(By.name("acceptCharge")).click();
+				//Select document type
 				
-				rbcid.clickCIDAcceptCharge();
+				rbcid.setdocumenttype(excel.getData(1, i, 4));
+				
+				//Click search button
+				
+				rbcid.clickCIDDocumentSearchLink();
 
-				Thread.sleep(5000);
+				
 
+							
+				
+				
+				mywaitvar = new WebDriverWait(driver, 80);
+
+				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
+				
+				//Get the count of image checkboxes
+				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
+				int numberofimageboxes = imageboxes.size();
+				
+				if (numberofimageboxes>0)
+				{
+					
+					System.out.println("Number of Image checkboxed available are:" + numberofimageboxes);
+					
+					//Select all checkboxes
+					for(WebElement ele : imageboxes) {
+						
+						if(!(ele.isSelected())) {
+							ele.click();
+						}
+					}
+				
+					
+					//Click Document Order button
+					
+					rbcid.clickCIDDocumentOrder();
+
+					Thread.sleep(5000);
+					
+					//Assert the text for Number of Image boxes selected for viewing
+					
+					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p[2]")).getText();
+					
+					System.out.println(imagetotaltext);
+					
+					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
+					
+					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+					
+					
+					//Click Accept charge submit link
+					
+					rbcid.clickCIDAcceptChargeSubmit();
+					
+					
+					//Get the count of imagelinks
+					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.list_bullet li"));
+					int numberofimagelinks = imagelinks.size();
+					
+					System.out.println("Number of Image links available are:" + numberofimagelinks);
+					
+					//Click each image link one by one and capture screenshots
+					for(int k=1; k<=numberofimagelinks; k++) {
+						
+							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
+							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
+							
+							Thread.sleep(5000);
+							utility.fullscreenshotcapture(driver, submissionno);
+							driver.navigate().back();
+					}
+					
+					
+				}
+				
+				else
+				{
 				// Capture company report
 
 				utility.screenshotcapture(driver, "companyreport");
@@ -128,6 +203,7 @@ public class myCIDCompany {
 				driver.findElement(By.xpath("//*[@id=\"topLinks\"]/tbody/tr[3]/td[2]/a")).click();
 
 				Thread.sleep(5000);
+				}
 				
 				// Write to Excel - PDF URL
 				
