@@ -126,6 +126,8 @@ public class myLawlinkCompanyDocumentViewAllDocuments {
 
 				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
 				
+				
+				
 				//Get the count of image checkboxes
 				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
 				int numberofimageboxes = imageboxes.size();

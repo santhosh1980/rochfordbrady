@@ -22,7 +22,7 @@ import pagefactory.myRBlogin;
 public class myCIDDocumentViewAllDocuments {
 
 	@Test
-	public void myCIDCompanyViewDocumentViewResults() throws Exception {
+	public void myCIDDocumentViewAllDocumentsViewResults() throws Exception {
 		// to use chrome
 		try {
 

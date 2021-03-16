@@ -283,6 +283,24 @@ public class myRBLawlink {
 	@FindBy(name="docButton")
 	
 	WebElement rbLawlinkDocumentOrder;
+	
+	@FindBy(xpath="//*[@id=\"leftmenu\"]/ul[1]/li[4]/a")
+	
+	WebElement rbLawlinkSubmissionNUmberLink;
+	
+	@FindBy(name="submissionNum")
+	
+	WebElement rbSubmissionNumber;
+	
+	@FindBy(xpath="\"//input[@value='NO']\"")
+	
+	WebElement rbLawlinkWebDownloadRadioButton;
+	
+	@FindBy(xpath="\"//input[@value='YES']\"")
+	
+	WebElement rbLawlinkDeliverByEmailRadioButton;
+	
+	
 
 	public myRBLawlink(WebDriver driver) {
 
@@ -769,5 +787,33 @@ public class myRBLawlink {
 	public void clickLawlinkDocumentOrderlink() {
 
 			rbLawlinkDocumentOrder.click();
+	}
+	
+	// Click Lawlink Company/Business - Submission NUmber Link
+
+	public void clickLawlinkCompanySubmissionNumberlink() {
+
+				rbLawlinkSubmissionNUmberLink.click();
+	}
+	
+	// Set submission number
+
+	public void setsubmissionnumber(String strsubmissionnumber) {
+
+			rbSubmissionNumber.sendKeys(strsubmissionnumber);
+	}
+	
+	// Click Web Download radio button
+
+	public void clickLawlinkWebDownloadRadioButton() {
+
+			rbLawlinkWebDownloadRadioButton.click();
+	}
+	
+	// Click Delivery By Email radio button
+
+	public void clickLawlinkDeliveryByEmaailRadioButton() {
+
+			rbLawlinkDeliverByEmailRadioButton.click();
 	}
 }

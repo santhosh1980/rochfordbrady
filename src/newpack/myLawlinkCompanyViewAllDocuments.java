@@ -22,7 +22,7 @@ import pagefactory.myRBlogin;
 public class myLawlinkCompanyViewAllDocuments {
 
 	@Test
-	public void myLawlinkCompanyViewDocumentViewResults() throws Exception {
+	public void myLawlinkCompanyViewAllDocumentsViewResults() throws Exception {
 		// to use chrome
 		try {
 
