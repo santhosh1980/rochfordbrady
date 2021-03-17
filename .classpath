@@ -52,19 +52,20 @@
 	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/snakeyaml-1.15.jar"/>
 	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/testng-6.9.9.jar"/>
 	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/xmlbeans-3.1.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-core-6.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-java-6.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-junit-6.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-jvm-deps-1.0.6.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-reporting-5.5.2.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/html-formatter-12.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/mockito-all-2.0.2-beta.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-plugin-6.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-expressions-12.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/tag-expressions-3.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/datatable-3.5.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/datatable-dependencies-3.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/Cucumber Jars/cucumber-gherkin-6.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/mylib/jar_files/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-core-1.2.6.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-expressions-12.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-gherkin-6.10.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-java-1.2.6.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-junit-1.2.6.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-jvm-deps-1.0.6.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-plugin-6.10.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/cucumber-reporting-5.5.2.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/datatable-3.5.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/datatable-dependencies-3.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/gherkin-2.12.2.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/html-formatter-12.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="D:/RochfordBradyTestNG/lib/tag-expressions-3.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
