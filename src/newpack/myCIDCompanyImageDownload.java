@@ -20,10 +20,10 @@ import pagefactory.myRBCID;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myCIDCompanyViewAllDocuments {
+public class myCIDCompanyImageDownload {
 
 	@Test
-	public void myCIDCompanyViewAllDocumentsViewResults() throws Exception {
+	public void myCIDCompanyImageDownloadViewResults() throws Exception {
 		// to use chrome
 		try {
 
@@ -59,7 +59,7 @@ public class myCIDCompanyViewAllDocuments {
 
 				// base url
 
-				String baseurl = "https://uat.cid.ie";
+				String baseurl = "https://qa.cid.ie";
 
 				driver.get(baseurl);
 
@@ -134,61 +134,31 @@ public class myCIDCompanyViewAllDocuments {
 
 				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
 				
-				//Get the count of image checkboxes
-				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
-				int numberofimageboxes = imageboxes.size();
+				//Get the count of image links with NO checkboxes
+				List<WebElement> imagelinks=driver.findElements(By.cssSelector("table.costs tr td a"));
+				int numberofimagelinks = imagelinks.size();
 				
-				if (numberofimageboxes>0)
+				if (numberofimagelinks>0)
 				{
 					
-					System.out.println("Number of Image checkboxed available are:" + numberofimageboxes);
+					System.out.println("Number of Image links without checkbox available are:" + numberofimagelinks);
 					
-					//Select all checkboxes
-					for(WebElement ele : imageboxes) {
-						
-						if(!(ele.isSelected())) {
-							ele.click();
-						}
-					}
+					
 				
 					
-					//Click Document Order button
-					
-					rbcid.clickCIDDocumentOrder();
-
-					Thread.sleep(5000);
-					
-					//Assert the text for Number of Image boxes selected for viewing
-					
-					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p[2]")).getText();
-					
-					System.out.println(imagetotaltext);
-					
-					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
-					
-					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
 					
 					
-					//Click Accept charge submit link
-					
-					rbcid.clickCIDAcceptChargeSubmit();
-					
-					
-					//Get the count of imagelinks
-					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.list_bullet li"));
-					int numberofimagelinks = imagelinks.size();
-					
-					System.out.println("Number of Image links available are:" + numberofimagelinks);
-					
-					//Click each image link one by one and capture screenshots
-					for(int k=1; k<=numberofimagelinks; k++) {
+					//Click each image link one by one and download
+					for(int k=0; k<numberofimagelinks; k++) {
 						
-							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
-							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
-							
-							Thread.sleep(5000);
-							utility.fullscreenshotcapture(driver, submissionno);
-							driver.navigate().back();
+						//Click image link using index
+						imagelinks.get(k).click();
+						//Click Accept charge link
+						rbcid.clickCIDAcceptCharge();
+						//Wait for image to download
+						Thread.sleep(30000);
+						//Go back to the screen for selecting the next image link
+						driver.navigate().back();
 					}
 					
 					

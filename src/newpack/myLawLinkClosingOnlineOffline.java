@@ -102,7 +102,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				// base url
 
-				 String baseurl="https://staging.lawlink.ie";
+				 String baseurl="https://qa.lawlink.ie";
 
 				// BVT
 

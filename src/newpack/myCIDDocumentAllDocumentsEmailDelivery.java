@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,23 +13,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import junit.framework.Assert;
+
 import lib.ExcelDataConfig;
 import lib.utility;
-import pagefactory.myRBLawlink;
+import pagefactory.myRBCID;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCompanySubmissionNumberSearch {
+public class myCIDDocumentAllDocumentsEmailDelivery {
 
 	@Test
-	public void myLawlinkCompanySubmissionNumberSearchViewResults() throws Exception {
-		
+	public void myCIDDocumentAllDocumentsEmailDeliveryViewResults() throws Exception {
+		// to use chrome
 		try {
 
 			WebDriver driver;
-			
-			WebDriverWait mywaitvar = null;
 
 			String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
 
@@ -41,29 +40,28 @@ public class myLawlinkCompanySubmissionNumberSearch {
 			// create chrome instance
 			System.setProperty("webdriver.chrome.driver", driverpath);
 
-			for (int i = 0; i <= excel.getrownum(12); i++) {
+			for (int i = 0; i <= excel.getrownum(1); i++) {
 
 				driver = new ChromeDriver();
+				
+				WebDriverWait mywaitvar = null;
 
 				myRBlogin rb = new myRBlogin(driver);
 				
 				myRBcommon rbcom = new myRBcommon(driver);
 				
-				myRBLawlink rblawlink = new myRBLawlink(driver);
-
+				myRBCID rbcid = new myRBCID(driver);
+				
+				
 				driver.manage().window().maximize();
 				
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 				// base url
 
-				String baseurl = "https://uat.lawlink.ie";
+				String baseurl = "https://uat.cid.ie";
 
 				driver.get(baseurl);
-
-				//driver.findElement(By.xpath("//*[@id=\"header_right\"]/p/span/a")).click();
-				
-				rblawlink.clickLawlinkLoginNowlink();
 
 				// get webelements
 
@@ -73,9 +71,9 @@ public class myLawlinkCompanySubmissionNumberSearch {
 
 				// pass credential
 
-				rb.setusername(excel.getData(12, i, 0));
+				rb.setusername(excel.getData(1, i, 0));
 
-				rb.setpassword(excel.getData(12, i, 1));
+				rb.setpassword(excel.getData(1, i, 1));
 
 				// RESI value status of user
 
@@ -83,49 +81,55 @@ public class myLawlinkCompanySubmissionNumberSearch {
 
 				// click submit button
 
-				// driver.findElement(By.xpath("//*[@id=\"loginpanel\"]/form/p[3]/a/img")).click();
+				// driver.findElement(By.className("submit")).click();;
 
-				rb.clicklawlinklogin();
+				rb.clickCIDlogin();
 
 				// passed values
 
 				System.out.println("Values passed");
 
-				// Click Company/Business - Company Search link
+				// Click CID and Company Search link
 
-				//driver.findElement(By.xpath("//*[@id="leftmenu"]/ul[1]/li[1]/a")).click();
+				//driver.findElement(By.xpath("//*[@id=\"left_menu\"]/ul/li[1]/a")).click();
+
+				//driver.findElement(By.xpath("//*[@id=\"left_menu\"]/ul/li[2]/a")).click();
 				
-				rblawlink.clickLawlinkCompanyCompanylink();
+				rbcid.clickCIDlink();
 				
-				//Click Company/Business - Submission Number Search link
-				
-				rblawlink.clickLawlinkCompanySubmissionNumberlink();
+				rbcid.clickCIDDocumentLink();
 
 				// Pass search values and click search button
 
-				// driver.findElement(By.name("userRef")).sendKeys("mysantest"+
+				// driver.findElement(By.id("userRef")).sendKeys("mysantest"+
 				// rand.nextInt(1000));
 
 				rbcom.setuserRef("myautotest" + rand.nextInt(1000));
 
 				Thread.sleep(5000);
 
-				//driver.findElement(By.name("compNumber")).sendKeys(excel.getNumericData(3, i, 3));
+				//driver.findElement(By.name("compName")).sendKeys(excel.getData(1, i, 2));
 				
-				rblawlink.setsubmissionnumber(excel.getNumericData(12, i, 3));
+				//rbcid.setcompanyname(excel.getData(1, i, 2));
 				
-				//Click Web Download button
+				rbcid.setcompanynumber(excel.getNumericData(1, i, 3));
+
+				// *[@id="form1"]/table/tbody/tr[14]/td[2]/input[1]
+
+				//driver.findElement(By.xpath("//*[@id=\"form1\"]/table/tbody/tr[14]/td[2]/input[1]")).click();
 				
-				rblawlink.clickLawlinkWebDownloadRadioButton();
+				//Select document type
 				
-								
+				rbcid.setdocumenttype(excel.getData(1, i, 4));
+				
+				//Click search button
+				
+				rbcid.clickCIDDocumentSearchLink();
+
+				
+
 							
-				//Click Search button
 				
-				rblawlink.clickLawlinkSearchLink();
-				
-				
-				//************************************************************************//
 				
 				mywaitvar = new WebDriverWait(driver, 80);
 
@@ -147,16 +151,17 @@ public class myLawlinkCompanySubmissionNumberSearch {
 							ele.click();
 						}
 					}
+				
 					
 					//Click Document Order button
 					
-					rblawlink.clickLawlinkDocumentOrderlink();
+					rbcid.clickCIDDocumentOrder();
 
 					Thread.sleep(5000);
 					
 					//Assert the text for Number of Image boxes selected for viewing
 					
-					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p")).getText();
+					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p[2]")).getText();
 					
 					System.out.println(imagetotaltext);
 					
@@ -165,45 +170,42 @@ public class myLawlinkCompanySubmissionNumberSearch {
 					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
 					
 					
+					//Click Email radio button
+					
+					rbcid.clickCIDEmailRadioButton();
+					
 					//Click Accept charge submit link
 					
-					rblawlink.clickLawlinkAcceptChargeSubmitlink();
+					rbcid.clickCIDAcceptChargeSubmit();
 					
 					
-					//Get the count of imagelinks
-					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.orange-list li"));
-					int numberofimagelinks = imagelinks.size();
+					//Click Send email submit button
 					
-					System.out.println("Number of Image links available are:" + numberofimagelinks);
+					rbcid.clickCIDSendEmailSubmit();
 					
-					//Click each image link one by one and capture screenshots
-					for(int k=1; k<=numberofimagelinks; k++) {
-						
-							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
-							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
-							
-							Thread.sleep(5000);
-							utility.fullscreenshotcapture(driver, submissionno);
-							driver.navigate().back();
-					}
+					//Verify email delivery text
+					
+					
+					
 					
 				}
 				
 				else
 				{
-					
-				
-				//Click PDF link
+				// Capture company report
 
-				//driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/div[1]/p/a[2]")).click();
-				
-				rblawlink.clickLawlinkJudgementPDFLink();
+				utility.screenshotcapture(driver, "companyreport");
+
+				driver.findElement(By.xpath("//*[@id=\"topLinks\"]/tbody/tr[3]/td[2]/a")).click();
 
 				Thread.sleep(5000);
-				
 				}
+				
+				// Write to Excel - PDF URL
+				
+				//String pdfurl = utility.getPDFURL(driver);
 
-				// excel.writeData(0, i, 3);
+				 //excel.writeData(1, i, 21, pdfurl);
 
 				// close chrome
 				driver.quit();

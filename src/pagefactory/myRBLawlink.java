@@ -292,14 +292,37 @@ public class myRBLawlink {
 	
 	WebElement rbSubmissionNumber;
 	
-	@FindBy(xpath="\"//input[@value='NO']\"")
+	@FindBy(name="submissionDocNum")
+	
+	WebElement rbSubmissionDocNumber;
+	
+	@FindBy(xpath="//*[@id=\"form1\"]/table/tbody/tr[3]/td/input[1]")
 	
 	WebElement rbLawlinkWebDownloadRadioButton;
 	
-	@FindBy(xpath="\"//input[@value='YES']\"")
+	@FindBy(xpath="//*[@id=\"form1\"]/table/tbody/tr[3]/td/input[2]")
 	
 	WebElement rbLawlinkDeliverByEmailRadioButton;
 	
+	@FindBy(xpath="//*[@id=\"formgeneric\"]/table/tbody/tr[1]/td[1]/input")
+	
+	WebElement rbLawlinkViewOnlineRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"formgeneric\"]/table/tbody/tr[2]/td[1]/input")
+	
+	WebElement rbLawlinkEmailRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"panel\"]/div[1]/form/table/tbody/tr[6]/td[2]/input")
+	
+	WebElement rbLawlinkSendEmailSubmit;
+	
+	@FindBy(xpath="//*[@id=\"form2\"]/table/tbody/tr[2]/td[2]/input")
+	
+	WebElement rbLawlinkImageDownloadWebDownloadRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"form2\"]/table/tbody/tr[3]/td[2]/input")
+	
+	WebElement rbLawlinkImageDownloadEmailRadioButton;
 	
 
 	public myRBLawlink(WebDriver driver) {
@@ -803,17 +826,59 @@ public class myRBLawlink {
 			rbSubmissionNumber.sendKeys(strsubmissionnumber);
 	}
 	
-	// Click Web Download radio button
+	// Set submission document number
+
+	public void setsubmissiodocnnumber(String strsubmissiondocnumber) {
+
+			rbSubmissionDocNumber.sendKeys(strsubmissiondocnumber);
+	}
+	
+	// Click Web Download radio button - Submission Number search
 
 	public void clickLawlinkWebDownloadRadioButton() {
 
 			rbLawlinkWebDownloadRadioButton.click();
 	}
 	
-	// Click Delivery By Email radio button
+	// Click Delivery By Email radio button - Submission Number search
 
-	public void clickLawlinkDeliveryByEmaailRadioButton() {
+	public void clickLawlinkDeliveryByEmailRadioButton() {
 
 			rbLawlinkDeliverByEmailRadioButton.click();
+	}
+	
+	// Click View Online radio button
+
+	public void clickLawlinkViewOnlineRadioButton() {
+
+			rbLawlinkViewOnlineRadioButton.click();
+	}
+	
+	// Click Email radio button
+
+	public void clickLawlinkEmailRadioButton() {
+
+			rbLawlinkEmailRadioButton.click();
+	}
+	
+	// Click Send Email Submit button
+
+	public void clickLawlinkSendEmailSubmit() {
+
+			rbLawlinkSendEmailSubmit.click();
+	}
+	
+	// Click Web Download radio button - Image download
+
+	public void clickLawlinkImageDownloadWebDownloadRadioButton() {
+
+			rbLawlinkImageDownloadWebDownloadRadioButton.click();
+	}
+	
+	// Click Delivery By Email radio button - Image download
+
+	public void clickLawlinkImageDownloadEmailRadioButton() {
+
+			rbLawlinkImageDownloadEmailRadioButton.click();
 	}
 }

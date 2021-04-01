@@ -190,6 +190,17 @@ public class myRBCID {
 
 	WebElement rbCIDDocumentSearch;
 	
+	@FindBy(xpath="//*[@id=\"sub_content\"]/form/table/tbody/tr[1]/td[1]/input")
+	
+	WebElement rbCIDViewOnlineRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"sub_content\"]/form/table/tbody/tr[2]/td[1]/input")
+	
+	WebElement rbCIDEmailRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"sub_content\"]/form/table/tbody/tr[7]/td[2]/input")
+	
+	WebElement rbCIDSendEmailSubmit;
 	
 
 	public myRBCID(WebDriver driver) {
@@ -516,5 +527,26 @@ public class myRBCID {
 	public void clickCIDDocumentSearchLink() {
 
 			rbCIDDocumentSearch.click();
+	}
+	
+	// Click View Online radio button
+
+	public void clickCIDViewOnlineRadioButton() {
+
+			rbCIDViewOnlineRadioButton.click();
+	}
+		
+	// Click Email radio button
+
+	public void clickCIDEmailRadioButton() {
+
+			rbCIDEmailRadioButton.click();
+	}
+		
+	// Click Send Email Submit button
+
+	public void clickCIDSendEmailSubmit() {
+
+			rbCIDSendEmailSubmit.click();
 	}
 }

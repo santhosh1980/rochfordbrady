@@ -20,10 +20,10 @@ import pagefactory.myRBLawlink;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCompanyViewAllDocuments {
+public class myLawlinkCompanyAllDocumentsEmailDelivery {
 
 	@Test
-	public void myLawlinkCompanyViewAllDocumentsViewResults() throws Exception {
+	public void myLawlinkCompanyAllDocumentsEmailDeliveryViewResults() throws Exception {
 		// to use chrome
 		try {
 
@@ -58,7 +58,7 @@ public class myLawlinkCompanyViewAllDocuments {
 
 				// base url
 
-				String baseurl = "https://uat.lawlink.ie";
+				String baseurl = "https://staging.lawlink.ie";
 
 				driver.get(baseurl);
 
@@ -164,6 +164,12 @@ public class myLawlinkCompanyViewAllDocuments {
 					
 					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
 					
+					//Click Email Radio Button
+					
+						
+					rblawlink.clickLawlinkEmailRadioButton();
+					
+					
 					
 					//Click Accept charge submit link
 					
@@ -171,22 +177,13 @@ public class myLawlinkCompanyViewAllDocuments {
 					
 					
 					
-					//Get the count of imagelinks
-					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.orange-list li"));
-					int numberofimagelinks = imagelinks.size();
+					//Click Send Email submit
 					
-					System.out.println("Number of Image links available are:" + numberofimagelinks);
+					rblawlink.clickLawlinkSendEmailSubmit();
 					
-					//Click each image link one by one and capture screenshots
-					for(int k=1; k<=numberofimagelinks; k++) {
-						
-							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
-							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
-							
-							Thread.sleep(5000);
-							utility.fullscreenshotcapture(driver, submissionno);
-							driver.navigate().back();
-					}
+					//Verify email delivery text
+					
+					
 					
 					
 					

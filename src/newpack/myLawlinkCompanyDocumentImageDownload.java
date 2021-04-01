@@ -20,11 +20,11 @@ import pagefactory.myRBLawlink;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myLawlinkCompanyViewAllDocuments {
+public class myLawlinkCompanyDocumentImageDownload {
 
 	@Test
-	public void myLawlinkCompanyViewAllDocumentsViewResults() throws Exception {
-		// to use chrome
+	public void myLawlinkCompanyDocumentImageDownloadViewResults() throws Exception {
+		
 		try {
 
 			WebDriver driver;
@@ -58,7 +58,7 @@ public class myLawlinkCompanyViewAllDocuments {
 
 				// base url
 
-				String baseurl = "https://uat.lawlink.ie";
+				String baseurl = "https://qa.lawlink.ie";
 
 				driver.get(baseurl);
 
@@ -92,11 +92,15 @@ public class myLawlinkCompanyViewAllDocuments {
 
 				System.out.println("Values passed");
 
-				// Click Company Search link
+				// Click Company/Business - Company Search link
 
-				//driver.findElement(By.xpath("//*[@id=\"leftmenu\"]/ul[3]/li[4]/a")).click();
+				//driver.findElement(By.xpath("//*[@id="leftmenu"]/ul[1]/li[1]/a")).click();
 				
-				rblawlink.clickLawlinkCompanylink();
+				rblawlink.clickLawlinkCompanyCompanylink();
+				
+				//Click Company/Business - Document Search link
+				
+				rblawlink.clickLawlinkCompanyDocumentlink();
 
 				// Pass search values and click search button
 
@@ -110,81 +114,42 @@ public class myLawlinkCompanyViewAllDocuments {
 				//driver.findElement(By.name("compNumber")).sendKeys(excel.getNumericData(3, i, 3));
 				
 				rblawlink.setcompanynumber(excel.getNumericData(3, i, 3));
-
-				//driver.findElement(By.name("search")).click();
 				
-				rblawlink.clickLawlinkSearchLink();
-
-				// Click accept charge button
-
-				//driver.findElement(By.name("acceptCharge")).click();
+				//Select Document type
 				
-				rblawlink.clickLawlinkAcceptChargelink();
+				rblawlink.setdocumenttype(excel.getData(3, i, 4));
 
-						
+				//Click Search button
+				
+				rblawlink.clickLawlinkCaptchaSubmit();
+				
 				mywaitvar = new WebDriverWait(driver, 80);
 
 				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
-
-								
 				
-				//List<WebElement> imageboxes = driver.findElements(By.xpath(".//*[starts-with(@type,'checkbox')]"));
 				
-				//Get the count of image checkboxes
-				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
-				int numberofimageboxes = imageboxes.size();
 				
-				if (numberofimageboxes>0)
+				//Get the count of image links with NO checkboxes
+				List<WebElement> imagelinks=driver.findElements(By.cssSelector("table.ReportChoiceInfo td.blue11 a"));
+				int numberofimagelinks = imagelinks.size();
+				System.out.println("Number of Image links without Checkbox available are:" + numberofimagelinks);
+				
+				if (numberofimagelinks>0)
 				{
 					
-					System.out.println("Number of Image checkboxed available are:" + numberofimageboxes);
-					
-					//Select all checkboxes
-					for(WebElement ele : imageboxes) {
 						
-						if(!(ele.isSelected())) {
-							ele.click();
-						}
-					}
+									
 					
-
-					Thread.sleep(5000);
-					
-					//Click Document Order button
-					
-					rblawlink.clickLawlinkDocumentOrderlink();
-					
-					//Assert the text for Number of Image boxes selected for viewing
-					
-					String imagetotaltext = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/p")).getText();
-					
-					System.out.println(imagetotaltext);
-					
-					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
-					
-					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
-					
-					
-					//Click Accept charge submit link
-					
-					rblawlink.clickLawlinkAcceptChargeSubmitlink();
-					
-					
-					
-					//Get the count of imagelinks
-					List<WebElement> imagelinks=driver.findElements(By.cssSelector("ul.orange-list li"));
-					int numberofimagelinks = imagelinks.size();
-					
-					System.out.println("Number of Image links available are:" + numberofimagelinks);
-					
-					//Click each image link one by one and capture screenshots
-					for(int k=1; k<=numberofimagelinks; k++) {
-						
-							String submissionno = driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).getText();
-							driver.findElement(By.xpath("//*[@id=\"sub_content\"]/ul/li["+k+"]/a")).click();
+					//Click each image link one by one and download
+					for(int k=0; k<numberofimagelinks; k++) {
 							
-							Thread.sleep(5000);
-							utility.fullscreenshotcapture(driver, submissionno);
+							//Click image link using index
+							imagelinks.get(k).click();
+							//Click Accept charge link
+							rblawlink.clickLawlinkAcceptChargelink();
+							//Wait for image to download
+							Thread.sleep(30000);
+							//Go back to the screen for selecting the next image link
 							driver.navigate().back();
 					}
 					
@@ -192,20 +157,20 @@ public class myLawlinkCompanyViewAllDocuments {
 					
 					
 				}
-					
+				
 				else
-					{
-					//Click PDF link
+				{
+					
+				
+				//Click PDF link
 
-					//driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/div[1]/p/a[2]")).click();
-					
-					rblawlink.clickLawlinkJudgementPDFLink();
-					
-					}
-					
+				//driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/div[1]/p/a[2]")).click();
 				
+				rblawlink.clickLawlinkJudgementPDFLink();
+
+				Thread.sleep(5000);
 				
-				
+				}
 
 				// excel.writeData(0, i, 3);
 
