@@ -57,7 +57,7 @@ public class myLawlinkCompanySubmissionNumberSearchEmailDelivery {
 
 				// base url
 
-				String baseurl = "https://qa.lawlink.ie";
+				String baseurl = "https://uat.lawlink.ie";
 
 				driver.get(baseurl);
 

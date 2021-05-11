@@ -128,11 +128,11 @@ public class myLawlinkCompanyViewAllDocuments {
 
 								
 				
-				//List<WebElement> imageboxes = driver.findElements(By.xpath(".//*[starts-with(@type,'checkbox')]"));
-				
 				//Get the count of image checkboxes
 				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
 				int numberofimageboxes = imageboxes.size();
+				//To restrict maximum document selection to 20
+				int maxdoc = 1;
 				
 				if (numberofimageboxes>0)
 				{
@@ -142,17 +142,17 @@ public class myLawlinkCompanyViewAllDocuments {
 					//Select all checkboxes
 					for(WebElement ele : imageboxes) {
 						
-						if(!(ele.isSelected())) {
+						if(!(ele.isSelected()) && maxdoc<=20) {
 							ele.click();
+							maxdoc++;
 						}
 					}
-					
-
-					Thread.sleep(5000);
 					
 					//Click Document Order button
 					
 					rblawlink.clickLawlinkDocumentOrderlink();
+
+					Thread.sleep(5000);
 					
 					//Assert the text for Number of Image boxes selected for viewing
 					
@@ -162,13 +162,22 @@ public class myLawlinkCompanyViewAllDocuments {
 					
 					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
 					
-					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+					if(numberofimageboxes<=20) {
+						
+						Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+						
+					}
+					else {
+						
+						Assert.assertTrue(imagetotaltext.contains("You have selected "+(maxdoc-1)+" documents."));
+					}
+						
+					
 					
 					
 					//Click Accept charge submit link
 					
 					rblawlink.clickLawlinkAcceptChargeSubmitlink();
-					
 					
 					
 					//Get the count of imagelinks
@@ -187,9 +196,6 @@ public class myLawlinkCompanyViewAllDocuments {
 							utility.fullscreenshotcapture(driver, submissionno);
 							driver.navigate().back();
 					}
-					
-					
-					
 					
 				}
 					

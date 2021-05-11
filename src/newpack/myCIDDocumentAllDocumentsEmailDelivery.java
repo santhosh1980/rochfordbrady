@@ -138,6 +138,8 @@ public class myCIDDocumentAllDocumentsEmailDelivery {
 				//Get the count of image checkboxes
 				List<WebElement> imageboxes=driver.findElements(By.cssSelector("input[type='checkbox']"));
 				int numberofimageboxes = imageboxes.size();
+				//To restrict maximum document selection to 20
+				int maxdoc = 1;
 				
 				if (numberofimageboxes>0)
 				{
@@ -147,11 +149,11 @@ public class myCIDDocumentAllDocumentsEmailDelivery {
 					//Select all checkboxes
 					for(WebElement ele : imageboxes) {
 						
-						if(!(ele.isSelected())) {
+						if(!(ele.isSelected()) && maxdoc<=20) {
 							ele.click();
+							maxdoc++;
 						}
 					}
-				
 					
 					//Click Document Order button
 					
@@ -165,10 +167,15 @@ public class myCIDDocumentAllDocumentsEmailDelivery {
 					
 					System.out.println(imagetotaltext);
 					
-					//Assert.assertEquals("You have selected "+numberofimageboxes+" documents.", imagetotaltext);
-					
-					Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
-					
+					if(numberofimageboxes<=20) {
+						
+						Assert.assertTrue(imagetotaltext.contains("You have selected "+numberofimageboxes+" documents."));
+						
+					}
+					else {
+						
+						Assert.assertTrue(imagetotaltext.contains("You have selected "+(maxdoc-1)+" documents."));
+					}
 					
 					//Click Email radio button
 					

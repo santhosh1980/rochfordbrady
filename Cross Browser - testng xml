@@ -5,14 +5,14 @@
    <test name="FirefoxTest">
    <parameter name="browserType" value="firefox" />
       <classes>
-         <class name="SeleniumGrid.CrossBrowserTest" />
+         <class name="SeleniumGrid.CrossBrowserCheck" />
       </classes>
    </test>
 
    <test name="ChromeTest">
    <parameter name="browserType" value="chrome" />
       <classes>
-         <class name="SeleniumGrid.CrossBrowserTest" />
+         <class name="SeleniumGrid.CrossBrowserCheck" />
       </classes>
    </test>
       

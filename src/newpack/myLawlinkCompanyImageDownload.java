@@ -58,7 +58,7 @@ public class myLawlinkCompanyImageDownload {
 
 				// base url
 
-				String baseurl = "https://qa.lawlink.ie";
+				String baseurl = "https://uat.lawlink.ie";
 
 				driver.get(baseurl);
 
@@ -152,6 +152,10 @@ public class myLawlinkCompanyImageDownload {
 							Thread.sleep(30000);
 							//Go back to the screen for selecting the next image link
 							driver.navigate().back();
+							//To exit from the loop for avoiding stale element exception
+							break;
+							//Refresh the screen for the correct state of element
+							//driver.navigate().refresh();
 					}
 					
 					

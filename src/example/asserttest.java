@@ -1,10 +1,12 @@
 package example;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class asserttest {
 	
@@ -28,6 +30,7 @@ public class asserttest {
 		System.out.println(driver.getTitle());
 		
 		try {
+			
 			
 			Assert.assertEquals("Google", driver.getTitle());
 			

@@ -58,7 +58,7 @@ public class myLawlinkCompanyDocumentImageEmailDelivery {
 
 				// base url
 
-				String baseurl = "https://qa.lawlink.ie";
+				String baseurl = "https://uat.lawlink.ie";
 
 				driver.get(baseurl);
 
@@ -155,6 +155,8 @@ public class myLawlinkCompanyDocumentImageEmailDelivery {
 							//Go back to the image select screen for selecting the next image link - 2 screen previous from email confirm screen
 							driver.navigate().back();
 							driver.navigate().back();
+							//To exit from the loop for avoiding stale element exception
+							break;
 					}
 					
 					

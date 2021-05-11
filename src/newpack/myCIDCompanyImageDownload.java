@@ -135,7 +135,17 @@ public class myCIDCompanyImageDownload {
 				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.name("docButton")));
 				
 				//Get the count of image links with NO checkboxes
-				List<WebElement> imagelinks=driver.findElements(By.cssSelector("table.costs tr td a"));
+				//List<WebElement> imagelinks=driver.findElements(By.cssSelector("table.costs tr td a"));
+				
+				//List<WebElement> imagelinks = driver.findElements(By.xpath("//*[starts-with(@id, 'document-report')]"));
+				
+				//To get all the elements that id start with the string and id contains the string
+				
+				//List<WebElement> imagelinks = driver.findElements(By.xpath("//*[starts-with(@id, 'document-report') and contains(@id, '-0')]"));
+				
+				
+				//To get all the anchor links which contains the string mentioned below in href attribute
+				List<WebElement> imagelinks = driver.findElements(By.xpath(".//a[contains(@href,'sub-search-accept-charge')]"));
 				int numberofimagelinks = imagelinks.size();
 				
 				if (numberofimagelinks>0)
@@ -159,6 +169,8 @@ public class myCIDCompanyImageDownload {
 						Thread.sleep(30000);
 						//Go back to the screen for selecting the next image link
 						driver.navigate().back();
+						//To exit from the loop for avoiding stale element exception
+						break;
 					}
 					
 					

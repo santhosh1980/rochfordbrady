@@ -65,6 +65,10 @@ public class myRBCID {
 	@FindBy(xpath = "//*[@id=\"all_reports\"]/a")
 
 	WebElement rbCIDISIPDF;
+	
+	@FindBy(xpath = "//*[@id=\"left_menu\"]/ul/li[5]/a")
+
+	WebElement rbCIDDirectorLink;
 
 	@FindBy(xpath = "//*[@id=\"left_menu\"]/ul/li[6]/a")
 
@@ -202,6 +206,46 @@ public class myRBCID {
 	
 	WebElement rbCIDSendEmailSubmit;
 	
+	@FindBy(xpath="//*[@id=\"form2\"]/table/tbody/tr[2]/td[2]/input")
+	
+	WebElement rbCIDImageDownloadWebDownloadRadioButton;
+	
+	@FindBy(xpath="//*[@id=\"form2\"]/table/tbody/tr[3]/td[2]/input")
+	
+	WebElement rbCIDImageDownloadEmailRadioButton;
+	
+	@FindBy(name="dirName")
+
+	WebElement rbCIDDirectorName;
+	
+	@FindBy(name="Submit4")
+
+	WebElement rbCIDDirectorSearch;
+	
+	@FindBy(id = "watchLinkAll")
+
+	WebElement rbCIDWatchLinkAll;
+	
+	@FindBy(name="btnAcceptChargeDirWatchAll")
+
+	WebElement rbCIDDirectorAcceptChargeDirWatchAll;
+	
+	@FindBy(name="continue")
+
+	WebElement rbCIDDirectorWatchlistContinue;
+	
+	@FindBy(xpath="//*[@id=\"watchDirectorsModal\"]/p[3]/a")
+	
+	WebElement rbCIDWatchDirectorsModelButton;
+	
+	@FindBy(name="watchReferenceDirs")
+
+	WebElement rbCIDDirectorWatchlistReference;
+	
+	@FindBy(name="addReference")
+
+	WebElement rbCIDDirectorAddReference;
+	
 
 	public myRBCID(WebDriver driver) {
 
@@ -308,6 +352,13 @@ public class myRBCID {
 	public void clickCIDISIPDFLink() {
 
 		rbCIDISIPDF.click();
+	}
+	
+	// Click CID Director SearchLink
+
+	public void clickCIDDirectorlink() {
+
+		rbCIDDirectorLink.click();
 	}
 
 	// Click CID JudgementLink
@@ -549,4 +600,74 @@ public class myRBCID {
 
 			rbCIDSendEmailSubmit.click();
 	}
+	
+	// Click Web Download radio button - Image download
+
+	public void clickCIDImageDownloadWebDownloadRadioButton() {
+
+			rbCIDImageDownloadWebDownloadRadioButton.click();
+	}
+		
+	// Click Delivery By Email radio button - Image download
+
+	public void clickCIDImageDownloadEmailRadioButton() {
+
+			rbCIDImageDownloadEmailRadioButton.click();
+	}
+	
+	// set Director Name
+
+	public void setdirectorname(String strdirectorname) {
+
+			rbCIDDirectorName.sendKeys(strdirectorname);
+	}
+	
+	// Click CID Director Search button
+
+	public void clickCIDDirectorSearchLink() {
+
+			rbCIDDirectorSearch.click();
+	}
+	
+	// Click CID Director Watch All Selected button
+
+	public void clickCIDDirectorWatchAllSelectedLink() {
+
+				rbCIDWatchLinkAll.click();
+	}
+	
+	// Click CID Director Accept Charge Director Watch All Link
+
+	public void clickCIDDirectorAcceptChargeDirWatchAllLink() {
+
+				rbCIDDirectorAcceptChargeDirWatchAll.click();
+	}
+	
+	// Click CID Director Watchlist - Director Added - Continue
+
+	public void clickCIDDirectorWatchlistAddedContinue() {
+
+				rbCIDDirectorWatchlistContinue.click();
+	}
+	
+	// Click CID Director Watchlist - view watchlist
+
+	public void clickCIDDirectorWatchDirectorsModelButton() {
+
+				rbCIDWatchDirectorsModelButton.click();
+	}
+	
+	// set Director Watchlist Reference
+
+	public void setdirectorwatchlistreference(String strdirectorwatchlistreference) {
+
+				rbCIDDirectorWatchlistReference.sendKeys(strdirectorwatchlistreference);
+	}
+	
+	// Click CID Director Watchlist - Add Reference Button
+
+	public void clickCIDDirectorWatchlistAddReference() {
+
+				rbCIDDirectorAddReference.click();
+		}
 }

@@ -151,6 +151,8 @@ public class myLawlinkCompanyDocumentImageDownload {
 							Thread.sleep(30000);
 							//Go back to the screen for selecting the next image link
 							driver.navigate().back();
+							//To exit from the loop for avoiding stale element exception
+							break;
 					}
 					
 					
