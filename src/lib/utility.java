@@ -29,6 +29,7 @@ import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -51,6 +52,26 @@ public class utility {
 	static String username = "";
 	static String password = "";
 	static Connection con;
+	
+	
+	public static void scrollscreen(WebDriver driver, int xaxis, int yaxis){
+
+		try {
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			
+			// This  will scroll  the page left/right or up/down by  mentioned pixel horizontal/vertical
+			//x axis 0 and y axis  1000 means vertical move down
+			//x axis 0 and y axis  -1000 means vertical move up
+	        js.executeScript("window.scrollBy(xaxis,yaxis)");
+
+			System.out.println("Scrolled");
+		} catch (Exception e) {
+			System.out.println("Exception while scrolling " + e.getMessage());
+		}
+
+	}
+	
 	
 
 	public static void screenshotcapture(WebDriver driver, String screenshotname) {

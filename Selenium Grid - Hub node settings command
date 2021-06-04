@@ -1,5 +1,5 @@
 hub setting = java -jar selenium-server-standalone-3.141.59.jar -role hub
-node setting = java -Dwebdriver.chrome.driver="C:\Users\U35035\eclipse-workspace\myrbtest\mylib\chromedriver_win32\chromedriver.exe" -Dwebdriver.gecko.driver="C:\Users\U35035\eclipse-workspace\myrbtest\mylib\geckodriver-v0.26.0-win64\geckodriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://10.100.75.32:4444/grid/register -port 5556
+node setting = java -Dwebdriver.chrome.driver="D:\RochfordBradyTestNG\mylib\chromedriver_win32\chromedriver.exe" -Dwebdriver.gecko.driver="D:\RochfordBradyTestNG\mylib\geckodriver-v0.26.0-win64\geckodriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://10.100.75.32:4444/grid/register -port 5556
 
 
 Note: Run the command from the selenium server folder

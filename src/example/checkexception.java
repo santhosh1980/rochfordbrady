@@ -27,7 +27,7 @@ public class checkexception {
 
 			driver.get(baseurl);
 			
-			driver.findElement(By.name("cusi")).sendKeys("332343");
+			driver.findElement(By.name("cusid")).sendKeys("332343");
 			
 			driver.findElement(By.name("submit")).click();
 			

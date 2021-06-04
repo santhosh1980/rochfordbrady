@@ -16,10 +16,10 @@ import pagefactory.myRBCID;
 import pagefactory.myRBcommon;
 import pagefactory.myRBlogin;
 
-public class myCIDDirectorWatchlist {
+public class myCIDDirectorWatchlistWithReference {
 
 	@Test
-	public void myCIDDirectorWatchlistViewResults() throws Exception {
+	public void myCIDDirectorWatchlistWithReferenceViewResults() throws Exception {
 		// to use chrome
 		try {
 			WebDriver driver;
@@ -117,6 +117,9 @@ public class myCIDDirectorWatchlist {
 				}*/
 				
 				List<WebElement> directorelements=driver.findElements(By.cssSelector("input[type='checkbox']"));
+				
+				
+				
 				int numberdirectorelements = directorelements.size();
 				
 				System.out.println("Number of Directors available are:" + numberdirectorelements);
@@ -125,6 +128,7 @@ public class myCIDDirectorWatchlist {
 				for(WebElement ele : directorelements) {
 					
 					if(!(ele.isSelected())) {
+						System.out.println(ele.getAttribute("value"));
 						ele.click();
 						
 					}

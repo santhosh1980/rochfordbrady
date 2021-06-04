@@ -189,6 +189,17 @@ public class myCIDDocumentViewAllDocuments {
 					
 					System.out.println("Number of Image links available are:" + numberofimagelinks);
 					
+					//Stale element reference exception - Click each image link one by one and capture screenshots
+					
+					/*for (WebElement ele:imagelinks) {
+						String submissionnumber = ele.getText();
+						System.out.println("Submission number is:"+submissionnumber);
+						ele.click();
+						Thread.sleep(5000);
+						utility.fullscreenshotcapture(driver, submissionnumber);
+						driver.navigate().back();
+					}*/
+					
 					//Click each image link one by one and capture screenshots
 					for(int k=1; k<=numberofimagelinks; k++) {
 						

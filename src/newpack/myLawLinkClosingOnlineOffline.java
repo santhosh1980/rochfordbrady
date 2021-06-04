@@ -6,6 +6,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.sun.xml.txw2.Document;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -102,7 +103,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				// base url
 
-				 String baseurl="https://staging.lawlink.ie";
+				 String baseurl="https://uat.lawlink.ie";
 
 				// BVT
 
@@ -218,6 +219,12 @@ public class myLawLinkClosingOnlineOffline {
 				// driver.findElement(By.name("next")).click();
 
 				rblawlink.clickLawlinkClosingNextLink();
+				
+				//scroll down to the lower of webpage and wait
+				
+				utility.scrollscreen(driver, 0, 1000);
+				
+				Thread.sleep(3000);
 
 				// pass Surname, firstname for online search then click add button
 
@@ -367,6 +374,14 @@ public class myLawLinkClosingOnlineOffline {
 
 					Thread.sleep(5000);
 				}
+				
+				//Scroll up and wait
+				
+				utility.scrollscreen(driver, 0, -1000);
+				
+				Thread.sleep(3000);
+				
+				
 
 				// capture screenshot 2
 

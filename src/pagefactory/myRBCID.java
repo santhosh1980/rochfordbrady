@@ -85,6 +85,19 @@ public class myRBCID {
 	@FindBy(xpath = "//*[@id=\"left_menu\"]/ul/li[11]/a")
 
 	WebElement rbCIDNewWatchlistLink;
+	
+	@FindBy(xpath = "//*[@id=\"left_menu\"]/ul/li[10]/a")
+
+	WebElement rbCIDViewWatchlistLink;
+	
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/table/tbody/tr[38]/td[2]/input")
+
+	WebElement rbCIDWatchlistViewDeleteSelectedItemLink;
+	
+	@FindBy(xpath = "//*[@id=\"sub_content\"]/p[2]/a")
+
+	WebElement rbCIDWatchlistHereLink;
+	
 
 	@FindBy(id = "radCompany")
 
@@ -387,6 +400,27 @@ public class myRBCID {
 	public void clickCIDNewWathclistLink() {
 
 		rbCIDNewWatchlistLink.click();
+	}
+	
+	// Click CID View Watchlist link
+
+	public void clickCIDViewWathclistLink() {
+
+		rbCIDViewWatchlistLink.click();
+	}
+	
+	// Click CID View Watchlist Delete Selected Item link
+
+	public void clickCIDWathclistViewDeleteSelectedItemLink() {
+
+		rbCIDWatchlistViewDeleteSelectedItemLink.click();
+	}
+	
+	// Click CID Watchlist Here link
+
+	public void clickCIDWathclistHereLink() {
+
+		rbCIDWatchlistHereLink.click();
 	}
 
 	// Select CID Watch type
