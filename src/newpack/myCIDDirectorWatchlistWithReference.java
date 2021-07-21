@@ -116,9 +116,9 @@ public class myCIDDirectorWatchlistWithReference {
 					driver.findElement(By.name("DIR" + k)).click();
 				}*/
 				
-				List<WebElement> directorelements=driver.findElements(By.cssSelector("input[type='checkbox']"));
+				//List<WebElement> directorelements=driver.findElements(By.cssSelector("input[type='checkbox']"));
 				
-				
+				List<WebElement> directorelements = rbcid.CIDWatchlistAddDirectorCheckboxes();
 				
 				int numberdirectorelements = directorelements.size();
 				

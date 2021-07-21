@@ -1,6 +1,6 @@
 package Tuto;
 
-class animal{
+class myanimal{
 	
 	public void animalsound() {
 		// TODO Auto-generated method stub
@@ -10,7 +10,7 @@ class animal{
 	
 }
 
-class cow extends animal{
+class cow extends myanimal{
 	
 	public void animalsound() {
 		// TODO Auto-generated method stub
@@ -21,11 +21,11 @@ class cow extends animal{
 	
 }
 
-class pig extends animal{
+class dog extends myanimal{
 	
 	public void animalsound() {
 		// TODO Auto-generated method stub
-		System.out.println("Pig making sound");
+		System.out.println("dog making sound");
 		
 	}
 	
@@ -36,9 +36,9 @@ public class myPolymor {
 	
 public static void main(String[] args) {
 		
-		animal obj1 =  new animal();
+		myanimal obj1 = new myanimal();
 		cow obj2 = new cow();
-		pig obj3 = new pig();
+		dog obj3 = new dog();
 		
 		obj1.animalsound();
 		obj2.animalsound();

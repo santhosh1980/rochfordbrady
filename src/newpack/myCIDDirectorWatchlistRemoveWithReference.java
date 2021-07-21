@@ -98,9 +98,9 @@ public class myCIDDirectorWatchlistRemoveWithReference {
 				utility.screenshotcapture(driver, "Current watchlist");
 				
 				
-				List<WebElement> watchlistelements=driver.findElements(By.id(excel.getData(4, i, 3)));
+				//List<WebElement> watchlistelements=driver.findElements(By.id(excel.getData(4, i, 3)));
 				
-				
+				List<WebElement> watchlistelements = rbcid.CIDWatchlistRemoveDirectorCheckboxeswithreference(excel.getData(4, i, 3));
 				
 				int numberwatchlistelements = watchlistelements.size();
 				
@@ -126,8 +126,9 @@ public class myCIDDirectorWatchlistRemoveWithReference {
 					
 					//rbcid.clickCIDWathclistViewDeleteSelectedItemLink();
 					
-					driver.findElement((By.cssSelector("input[value='Delete Selected Item(s)']"))).click();
+					//driver.findElement((By.cssSelector("input[value='Delete Selected Item(s)']"))).click();
 					
+					rbcid.clickCIDDeleteSelectedWatchlistItemButton();
 					
 					//Click return to watchlist after deletion
 					

@@ -36,6 +36,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -396,6 +398,45 @@ public static String getPDFURL(WebDriver driver) throws Exception {
 	public static void dbclose() throws Exception {
 		// closing DB Connection
 				con.close();
+	}
+	
+	public static WebDriver browserstart(String browsername) throws Exception {
+		
+		WebDriver driver = null;
+		
+		String driverpath;
+		
+		//chrome driver
+		if(browsername.equalsIgnoreCase("Chrome")) {
+			
+			//Set Chrome driver path and create chrome instance
+			driverpath="C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
+			System.setProperty("webdriver.chrome.driver", driverpath);
+			driver = new ChromeDriver();
+			
+		}
+		
+		//firefox driver
+		else if (browsername.equalsIgnoreCase("Firefox")) {
+			
+			//Set Firefox driver path and create firefox instance
+			driverpath="C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe";
+			System.setProperty("webdriver.gecko.driver", driverpath);
+			driver = new FirefoxDriver();
+		}
+		
+		//internet explorer driver
+		else if (browsername.equalsIgnoreCase("IE")) {
+					
+			//Set IE driver path and create IE instance
+			driverpath="C:\\Users\\U35035\\eclipse-workspace\\Microsoftwebdriver\\MicrosoftWebDriver.exe";
+			System.setProperty("webdriver.edge.driver", driverpath);
+			driver = new EdgeDriver();
+		}
+		
+		String baseurl="https://uat.lawlink.ie";
+		driver.get(baseurl);
+		return driver;
 	}
 	
 

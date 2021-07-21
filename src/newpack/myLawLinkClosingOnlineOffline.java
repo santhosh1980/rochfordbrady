@@ -399,9 +399,11 @@ public class myLawLinkClosingOnlineOffline {
 
 				// Click download pdf button
 
-				mywaitvar = new WebDriverWait(driver, 50);
+				//mywaitvar = new WebDriverWait(driver, 50);
 
-				mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
+				//mywaitvar.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"all_reports\"]/a/p")));
+				
+				rblawlink.Lawlinkexplicitwaitdownloadpdf();
 
 				// driver.findElement(By.xpath("//*[@id=\"all_reports\"]/a/p")).click();
 

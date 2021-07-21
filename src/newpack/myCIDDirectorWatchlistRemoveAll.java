@@ -98,9 +98,9 @@ public class myCIDDirectorWatchlistRemoveAll {
 				utility.screenshotcapture(driver, "Current watchlist");
 				
 				
-				List<WebElement> watchlistelements=driver.findElements(By.cssSelector("input[type='checkbox']"));
+				//List<WebElement> watchlistelements=driver.findElements(By.cssSelector("input[type='checkbox']"));
 				
-			
+				List<WebElement> watchlistelements = rbcid.CIDWatchlistRemoveDirectorCheckboxeswithoutreference();
 				
 				
 				int numberwatchlistelements = watchlistelements.size();
@@ -127,8 +127,9 @@ public class myCIDDirectorWatchlistRemoveAll {
 					
 					//rbcid.clickCIDWathclistViewDeleteSelectedItemLink();
 					
-					driver.findElement((By.cssSelector("input[value='Delete Selected Item(s)']"))).click();
+					//driver.findElement((By.cssSelector("input[value='Delete Selected Item(s)']"))).click();
 					
+					rbcid.clickCIDDeleteSelectedWatchlistItemButton();
 					
 					//Click return to watchlist after deletion
 					
