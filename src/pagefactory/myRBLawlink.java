@@ -148,6 +148,10 @@ public class myRBLawlink {
 	@FindBy(xpath = "//*[@id=\"receiverOfFines1\"]/table/tbody/tr[6]/td/span/a")
 
 	WebElement rbLawlinkClosingAnotherReceiverOfFineSearchLink;
+	
+	@FindBy(xpath ="//*[@id=\"sheriff1\"]/table/tbody/tr[6]/td/span/a" )
+
+	WebElement rbLawlinkClosingAnotherSheriffSearchLink;
 
 	@FindBy(xpath = "//*[@id=\"panel\"]/div[1]/table[2]/tbody/tr[3]/td/input")
 
@@ -208,6 +212,18 @@ public class myRBLawlink {
 	@FindBy(name = "chkWindup")
 
 	WebElement rbLawlinkClosingCheckWindingUpBox;
+	
+	@FindBy(name = "windupCompNum")
+
+	WebElement rbLawlinkWindingUpCompanyNumber;
+	
+	@FindBy(id = "Find")
+
+	WebElement rbLawlinkWindingUpFind;
+	
+	@FindBy(id = "0")
+
+	WebElement rbLawlinkAddWindingUpCompany;
 
 	@FindBy(xpath = "//*[@id=\"header_right\"]/ul/li[1]/a")
 
@@ -610,6 +626,13 @@ public class myRBLawlink {
 
 		rbLawlinkClosingAnotherReceiverOfFineSearchLink.click();
 	}
+	
+	// select the Lawlink Closing Search Sheriff - Another Sheriff search link
+
+	public void clickLawlinkClosingAnotherSheriffSearchLink() {
+
+		rbLawlinkClosingAnotherSheriffSearchLink.click();
+	}
 
 	// Click Lawlink Closing Search Offline Planning Submit Link
 
@@ -714,6 +737,27 @@ public class myRBLawlink {
 	public void selectLawlinkClosingCheckWindingUpBox() {
 
 		rbLawlinkClosingCheckWindingUpBox.click();
+	}
+	
+	// Set Winding up Company Number
+
+	public void setLawlinkClosingWindingUpCompanyNumber(String strwindingupcompanynum) {
+
+		rbLawlinkWindingUpCompanyNumber.sendKeys(strwindingupcompanynum);
+	}
+	
+	// Click Winding up Find
+
+	public void clickLawlinkClosingWindingUpFind() {
+
+		rbLawlinkWindingUpFind.click();
+	}
+	
+	// Click Add Winding up Company
+
+	public void clickLawlinkAddWindingUpCompany() {
+
+		rbLawlinkAddWindingUpCompany.click();
 	}
 
 	// Click Lawlink Home Link
@@ -1267,6 +1311,82 @@ public class myRBLawlink {
 		}
 
 		driver.findElement(By.xpath(rofcountyxpath)).sendKeys(rofcounty);
+
+	}
+	
+	// Lawlink sheriff - First name
+
+	public void setsherifffirstname(int sheriffcount,String sherifffirstname) {
+
+		String sherifffirstnamexpath=null;
+
+		if(sheriffcount==1) {
+
+			sherifffirstnamexpath = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form[1]/table/tbody/tr[2]/td[2]/input";
+		}
+		else {
+
+			sherifffirstnamexpath="/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form["+(sheriffcount)+"]/table/tbody/tr[1]/td[2]/input";
+		}
+
+		driver.findElement(By.xpath(sherifffirstnamexpath)).sendKeys(sherifffirstname);
+
+	}
+	
+	// Lawlink sheriff - Last name
+
+	public void setsherifflastname(int sheriffcount,String sherifflastname) {
+
+		String sherifflastnamexpath=null;
+
+		if(sheriffcount==1) {
+
+			sherifflastnamexpath = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form[1]/table/tbody/tr[3]/td[2]/input";
+		}
+		else {
+
+			sherifflastnamexpath= "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form["+(sheriffcount)+"]/table/tbody/tr[2]/td[2]/input";
+		}
+
+		driver.findElement(By.xpath(sherifflastnamexpath)).sendKeys(sherifflastname);
+
+	}
+	
+	// Lawlink sheriff - Address
+
+	public void setsheriffaddress(int sheriffcount,String sheriffaddress) {
+
+		String sheriffaddressxpath=null;
+
+		if(sheriffcount==1) {
+
+			sheriffaddressxpath = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form[1]/table/tbody/tr[4]/td/textarea";
+		}
+		else {
+
+			sheriffaddressxpath= "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form["+(sheriffcount)+"]/table/tbody/tr[3]/td/textarea";
+		}
+
+		driver.findElement(By.xpath(sheriffaddressxpath)).sendKeys(sheriffaddress);
+
+	}
+	
+	// Lawlink sheriff - County
+
+	public void setsheriffcounty(int sheriffcount,String sheriffcounty) {
+
+		String sheriffcountyxpath=null;
+
+		if(sheriffcount==1) {
+
+			sheriffcountyxpath = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form[1]/table/tbody/tr[5]/td[2]/select";
+		}
+		else {
+
+			sheriffcountyxpath= "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[4]/div/form["+(sheriffcount)+"]/table/tbody/tr[4]/td[2]/select";
+		}
+
+		driver.findElement(By.xpath(sheriffcountyxpath)).sendKeys(sheriffcounty);
 
 	}
 

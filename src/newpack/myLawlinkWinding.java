@@ -71,7 +71,7 @@ public class myLawlinkWinding {
 
 			// base url
 
-			String baseurl = "https://qa.lawlink.ie";
+			String baseurl = "https://uat.lawlink.ie";
 
 			driver.get(baseurl);
 
@@ -168,16 +168,22 @@ public class myLawlinkWinding {
 
 				// Pass company id
 
-				driver.findElement(By.name("windupCompNum")).sendKeys(excel.getNumericData(7, i, k));
+				//driver.findElement(By.name("windupCompNum")).sendKeys(excel.getNumericData(7, i, k));
+				
+				rblawlink.setLawlinkClosingWindingUpCompanyNumber(excel.getNumericData(7, i, k));
 
 				// Click find button
 
-				driver.findElement(By.id("Find")).click();
+				//driver.findElement(By.id("Find")).click();
+				
+				rblawlink.clickLawlinkClosingWindingUpFind();
 
 				Thread.sleep(5000);
 				// Add company to the confirmed searches
 
-				driver.findElement(By.xpath("//*[@id=\"0\"]")).click();
+				//driver.findElement(By.xpath("//*[@id=\"0\"]")).click();
+				
+				rblawlink.clickLawlinkAddWindingUpCompany();
 
 				Thread.sleep(5000);
 
