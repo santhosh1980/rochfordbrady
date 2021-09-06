@@ -84,7 +84,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 			
 			for (int i = 0; i <= excel.getrownum(1); i++) {
 				
-				//Browser and URL information takes from Utility methods
+				//Browser and URL information takes from Utility methods - 06/09/2021
 				
 				driver = utility.browserstart("Chrome");
 				
