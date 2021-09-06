@@ -104,7 +104,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				// base url
 
-				 String baseurl="https://uat.lawlink.ie";
+				 String baseurl="https://staging.lawlink.ie";
 
 				// BVT
 
@@ -408,7 +408,7 @@ public class myLawLinkClosingOnlineOffline {
 
 				// driver.findElement(By.xpath("//*[@id=\"all_reports\"]/a/p")).click();
 				
-				//Assert statement to verify the ISI search failure message NOT present
+				//Assert statement to verify the ISI search failure message NOT present - 06/09/2021
 				
 				Assert.assertFalse("We have encountered a problem returning your ISI search result(s), please contact Rochford Brady for assistance",false);
 				
