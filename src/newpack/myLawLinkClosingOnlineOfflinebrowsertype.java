@@ -107,7 +107,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 
 				// base url
 
-				 String baseurl="https://uat.lawlink.ie";
+				// String baseurl="https://uat.lawlink.ie";
 
 				// BVT
 
@@ -121,7 +121,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 
 				//String baseurl=excel.getData(4, 0, 2);
 
-				driver.get(baseurl);
+				//driver.get(baseurl);
 
 				log.debug("Opening website");
 				

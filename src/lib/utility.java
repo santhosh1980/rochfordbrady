@@ -434,7 +434,7 @@ public static String getPDFURL(WebDriver driver) throws Exception {
 			driver = new EdgeDriver();
 		}
 		
-		String baseurl="https://uat.lawlink.ie";
+		String baseurl="https://staging.lawlink.ie";
 		driver.get(baseurl);
 		return driver;
 	}
