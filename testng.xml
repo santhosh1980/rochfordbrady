@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="newpack.myLawLinkClosingOnlineOfflinebrowsertype"/>
+      <class name="newpack.myCIDBusiness"/>
+      <class name="newpack.myLawlinkDirector"/>
+      <class name="newpack.myCIDCompany"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

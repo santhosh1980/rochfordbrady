@@ -63,7 +63,7 @@ public class myLawlinkBankruptcy {
 
 			// base url
 
-			String baseurl = "https://uat.lawlink.ie";
+			String baseurl = "https://qa.lawlink.ie";
 
 			driver.get(baseurl);
 
