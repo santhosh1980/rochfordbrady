@@ -2,7 +2,7 @@ package example;
 
 import org.testng.annotations.Test;
 
-
+import lib.utility;
 
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.By;
@@ -17,6 +17,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -49,9 +52,16 @@ public class tinyChef {
 	
 	
 	@Test
-	public void typeanswer() throws InterruptedException {
+	public void typeanswer() throws Exception {
 		
 		mywaitvar = new WebDriverWait(driver, 30);
+		
+		//Press enter
+		
+		utility.keyenter();
+		
+		Thread.sleep(5000);
+		  
 		
 		//Click "Let us begin" button
 		
@@ -59,7 +69,7 @@ public class tinyChef {
 		
 		//driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
 		
-		mywaitvar.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='root']//div[@data-qa='layout-placement-wrapper']//section[@data-qa='welcome-screen-wrapper']//button[@data-qa='start-button']//span[contains(.,'Begin')]"))).click();
+		//mywaitvar.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='root']//div[@data-qa='layout-placement-wrapper']//section[@data-qa='welcome-screen-wrapper']//button[@data-qa='start-button']//span[contains(.,'Begin')]"))).click();
 		
 		//driver.findElement(By.xpath("//span[contains(@class, 'TextWrapper-sc-__sc-1f8vz90-0') and contains(., 'Begin')]")).click();
 		
@@ -85,17 +95,25 @@ public class tinyChef {
 		
 		//Fill in Name and press Enter
 		
-		driver.findElement(By.name("name")).sendKeys("NameIgnore");
+		//driver.findElement(By.name("name")).sendKeys("NameIgnore");
 		
-		driver.findElement(By.name("name")).sendKeys(Keys.ENTER);
+		//driver.findElement(By.id("short_text-0e8005fce1662867-3OSPh52JVfqqaYeE")).sendKeys("NameIgnore");
+		
+		//driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Nametest");
+		
+		driver.findElement(By.xpath(".//input[contains(@name,'name')]")).sendKeys("Nametest");
+		
+		//driver.findElement(By.cssSelector("input.InputField-sc-__sc-p8yw0p-0.iTjRUO")).sendKeys("Hello");
+		
+		//driver.findElement(By.name("name")).sendKeys(Keys.ENTER);
 		
 		Thread.sleep(5000);
 		
 		//Fill in Email and press Enter
 		
-		driver.findElement(By.name("email")).sendKeys("ignore@ignore.com");
+		//driver.findElement(By.name("email")).sendKeys("ignore@ignore.com");
 		
-		driver.findElement(By.name("email")).sendKeys(Keys.ENTER);
+		//driver.findElement(By.name("email")).sendKeys(Keys.ENTER);
 		
 		Thread.sleep(5000);
 		

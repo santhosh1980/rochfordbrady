@@ -212,7 +212,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 
 				// driver.findElement(By.name("requiredBy")).sendKeys("23/10/2020");
 
-				rblawlink.setrequiredby("23/10/2021");
+				rblawlink.setrequiredby("23/10/2022");
 
 				// driver.findElement(By.xpath("//*[@id=\"step3\"]/table/tbody/tr[3]/td[2]/input[2]")).click();
 
@@ -284,7 +284,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 						Resi = "NO";
 					}
 
-					if (offcount == 1 && (Resi.equalsIgnoreCase("NO") || Resi.equalsIgnoreCase("YES"))) {
+					/*if (offcount == 1 && (Resi.equalsIgnoreCase("NO") || Resi.equalsIgnoreCase("YES"))) {
 						fname = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form/table/tbody/tr[1]/td[2]/input";
 						lname = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form/table/tbody/tr[2]/td[2]/input";
 						deedsfrom = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form/table/tbody/tr[3]/td[2]/input[1]";
@@ -303,14 +303,14 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 								.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[3]/td[2]/input[2]");
 						deedsaddress = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form["
 								.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[4]/td/textarea");
-					}
+					}*/
 					
 					
 					
 					
 					//Non-RESI Handled here
 					
-					/*if (offcount == 1 && (Resi.equalsIgnoreCase("NO"))) {
+					if (offcount == 1 && (Resi.equalsIgnoreCase("NO"))) {
 					fname = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[1]/td[2]/input";
 					lname = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[2]/td[2]/input";
 					deedsfrom = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[3]/td[2]/input[1]";
@@ -329,13 +329,13 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 							.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[3]/td[2]/input[2]");
 					deedsaddress = "/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form["
 							.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[4]/td/textarea");
-				}*/
+				}
 					
 					
 					
 					//RESI Handled here
 					
-					/*if (offcount == 1 && (Resi.equalsIgnoreCase("YES"))) {
+					if (offcount == 1 && (Resi.equalsIgnoreCase("YES"))) {
 					fname = "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[1]/td[2]/input";
 					lname = "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[2]/td[2]/input";
 					deedsfrom = "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form[1]/table/tbody/tr[3]/td[2]/input[1]";
@@ -354,7 +354,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 							.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[3]/td[2]/input[2]");
 					deedsaddress = "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/table[2]/tbody/tr[4]/td/div/form["
 							.concat(String.valueOf(offcount)).concat("]/table/tbody/tr[4]/td/textarea");
-				}*/
+				}
 					
 					
 

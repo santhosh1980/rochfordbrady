@@ -1,5 +1,8 @@
 package lib;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -438,6 +441,22 @@ public static String getPDFURL(WebDriver driver) throws Exception {
 		driver.get(baseurl);
 		return driver;
 	}
+	
+	public static void keyenter() throws Exception {
+		
+		Robot robot;
+		
+		try {
+			robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ENTER); //press enter key
+			robot.keyRelease(KeyEvent.VK_ENTER); //release enter key
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 
 

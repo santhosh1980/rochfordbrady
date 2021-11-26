@@ -32,7 +32,7 @@ public class Fileupload {
 
 		driver.get(baseurl);
 		
-		driver.findElement(By.id("uploadfile_0")).sendKeys("C:\\Users\\U35035\\Downloads\\test issue.pdf");
+		driver.findElement(By.id("uploadfile_0")).sendKeys("C:\\Users\\U35035\\Downloads\\1081714-241756.pdf");
 		
 		driver.findElement(By.id("terms")).click();
 		
