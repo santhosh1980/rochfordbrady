@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,8 +24,14 @@ public class Testtooltip {
 	public void TesttooltipResults() throws Exception {
 
 		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
 		String baseurl = "https://www.guru99.com/";
+		
+		String tooltip;
+		
+		String text;
 
 		driver.get(baseurl);
 
@@ -43,15 +50,24 @@ public class Testtooltip {
 
 		for (int i = 1; i <= 9; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[1]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[1]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[1]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[1]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
+			 
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -61,19 +77,27 @@ public class Testtooltip {
 
 		}
 
-		// Live projects - 13
+		// Live projects - 14
 
-		for (int i = 1; i <= 13; i++) {
+		for (int i = 1; i <= 14; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[2]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[2]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[2]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[2]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -85,39 +109,47 @@ public class Testtooltip {
 
 		// Performance Testing - 2
 
-		for (int i = 1; i <= 2; i++) {
+//		for (int i = 1; i <= 2; i++) {
+//
+//			String tooltip = driver.findElement(By
+//					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[3]/li[" + i + "]/a"))
+//					.getAttribute("title");
+//
+//			String text = driver.findElement(By
+//					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[3]/li[" + i + "]/a"))
+//					.getText();
+//
+//			if (!tooltip.equals(text)) {
+//
+//				System.out.println("Tooltip is " + tooltip);
+//
+//				System.out.println("Text is " + text);
+//
+//			}
+//
+//		}
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[3]/li[" + i + "]/a"))
+		// SAP - 20
+
+		for (int i = 1; i <= 20; i++) {
+
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[2]/div/ul[1]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[1]/div/ul[3]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[2]/div/ul[1]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
-
-				System.out.println("Tooltip is " + tooltip);
-
-				System.out.println("Text is " + text);
-
-			}
-
-		}
-
-		// SAP - 14
-
-		for (int i = 1; i <= 14; i++) {
-
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[1]/li[" + i + "]/a"))
-					.getAttribute("title");
-
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[1]/li[" + i + "]/a"))
-					.getText();
-
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -131,15 +163,23 @@ public class Testtooltip {
 
 		for (int i = 1; i <= 3; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[2]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[3]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[2]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[3]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -153,15 +193,23 @@ public class Testtooltip {
 
 		for (int i = 1; i <= 3; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[3]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[4]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[2]/div/ul[3]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[1]/div/ul[4]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -171,19 +219,27 @@ public class Testtooltip {
 
 		}
 
-		// AI - 3
+		// AI - 8
 
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 1; i <= 8; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[1]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[1]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[1]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[1]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -193,19 +249,27 @@ public class Testtooltip {
 
 		}
 
-		// Web - 19
+		// Web - 23
 
-		for (int i = 1; i <= 19; i++) {
+		for (int i = 1; i <= 23; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[2]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[2]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[2]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[2]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -219,15 +283,23 @@ public class Testtooltip {
 
 		for (int i = 1; i <= 3; i++) {
 
-			String tooltip = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[3]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[3]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By
-					.xpath("/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[3]/div/ul[3]/li[" + i + "]/a"))
+			 text = driver.findElement(By
+					.xpath("/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[3]/div/ul[3]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -237,19 +309,27 @@ public class Testtooltip {
 
 		}
 
-		// Big data - 9
+		// Big data - 17
 
-		for (int i = 1; i <= 9; i++) {
+		for (int i = 1; i <= 17; i++) {
 
-			String tooltip = driver.findElement(By.xpath(
-					"/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[4]/div/ul[1]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By.xpath(
+					"/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[2]/div/ul[2]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By.xpath(
-					"/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[4]/div/ul[1]/li[" + i + "]/a"))
+			 text = driver.findElement(By.xpath(
+					"/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[2]/div/ul[2]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			//replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 
@@ -259,19 +339,27 @@ public class Testtooltip {
 
 		}
 
-		// Must learn - 15
+		// Must learn - 30
 
-		for (int i = 1; i <= 15; i++) {
+		for (int i = 1; i <= 30; i++) {
 
-			String tooltip = driver.findElement(By.xpath(
-					"/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[4]/div/ul[2]/li[" + i + "]/a"))
+			 tooltip = driver.findElement(By.xpath(
+					"/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[4]/div/ul[1]/li["+i+"]/a"))
 					.getAttribute("title");
 
-			String text = driver.findElement(By.xpath(
-					"/html/body/div[2]/section[4]/div/div/div/div/div/div/div/div[4]/div/ul[2]/li[" + i + "]/a"))
+			 text = driver.findElement(By.xpath(
+					"/html/body/div[1]/div/div/div/main/div/article/div/div[1]/div[2]/div[4]/div/ul[1]/li["+i+"]/a"))
 					.getText();
+			 
+			 //replacing all characters except alpha numeric
+			 
+			 //text=text.replaceAll("[^a-zA-Z0-9]", "");
+			 
+			 //replace everything that is not word character (a-z in any case, 0-9 or _) or whitespace or brackets or slash or period or  plus or hyphen sign or hash sign
+			 
+			 text=text.replaceAll("[^\\w\\s\\(\\)\\/\\.\\+\\-\\#]", "");
 
-			if (!tooltip.equals(text)) {
+			if (!tooltip.trim().equals(text.trim())) {
 
 				System.out.println("Tooltip is " + tooltip);
 

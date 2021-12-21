@@ -1,6 +1,7 @@
 package example;
 
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -18,10 +19,14 @@ public class checkexception {
 		
 		driver = new ChromeDriver();
 		
+		
+		
 		try {
 			//try block
 			
 			driver.manage().window().maximize();
+			 
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 			String baseurl = "http://demo.guru99.com/test/delete_customer.php";
 
