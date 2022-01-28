@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="Feature", glue= "StepDefinition4", tags= {"@addTariffplantoCustomerMultiple"}
+@CucumberOptions(features="Feature", glue= "StepDefinition2", tags= {"@smoke"}
 
 /*dryRun = false,
 monochrome = true,

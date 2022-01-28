@@ -5,9 +5,11 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import lib.ExcelDataConfig;
@@ -64,7 +66,7 @@ public class myCIDJudgement {
 
 			// base url
 
-			String baseurl = "https://staging.cid.ie";
+			String baseurl = "https://nonprod.cid.ie";
 
 			driver.get(baseurl);
 
@@ -137,12 +139,23 @@ public class myCIDJudgement {
 			utility.screenshotcapture(driver, "searchvaluejudgmentCID");
 
 			System.out.println("Values passed");
+			
+			Thread.sleep(5000);
 
 			// Click search button
 
 			//driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")).click();
 			
-			rbcid.clickCIDJudgementSearchLink();
+			//Below action command/javascript executor is to avoid element not interactable exception.
+			//The root cause of that issue is that Chrome doesn't scroll to the element outside of the viewport
+			 
+			/*Actions actions = new Actions(driver);
+			    actions.moveToElement(driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
+			    actions.perform();*/
+			
+			((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
+			
+			//rbcid.clickCIDJudgementSearchLink();
 
 			Thread.sleep(15000);
 
