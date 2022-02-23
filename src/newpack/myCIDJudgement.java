@@ -153,9 +153,13 @@ public class myCIDJudgement {
 			    actions.moveToElement(driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
 			    actions.perform();*/
 			
-			((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
+			//((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
 			
-			//rbcid.clickCIDJudgementSearchLink();
+			//((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"sub_content\"]/form/table[2]/tbody/tr[7]/td/input[1]")));
+			
+			((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", rbcid.rbCIDJudgementSearch);
+			
+			rbcid.clickCIDJudgementSearchLink();
 
 			Thread.sleep(15000);
 
