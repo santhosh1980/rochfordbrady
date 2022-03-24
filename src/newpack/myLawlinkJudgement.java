@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.testng.annotations.Test;
 
 import lib.ExcelDataConfig;
@@ -21,8 +22,8 @@ public class myLawlinkJudgement {
 	@Test
 	public void myLawlinkJudgementViewResults() throws Exception {
 
-		WebDriver driver;
-
+		//WebDriver driver;
+		
 		String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
 
 		String datapath = "C:\\Users\\U35035\\eclipse-workspace\\Data\\TestDataOnline.xlsx";
@@ -35,8 +36,12 @@ public class myLawlinkJudgement {
 		System.setProperty("webdriver.chrome.driver", driverpath);
 
 		for (int i = 0; i <= excel.getrownum(7); i++) {
+			
+			ChromeDriverService driverservice = ChromeDriverService.createDefaultService();
+			
+		  	ChromeDriver driver= new ChromeDriver(driverservice);
 
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
 
 			myRBlogin rb = new myRBlogin(driver);
 			
@@ -208,7 +213,9 @@ public class myLawlinkJudgement {
 			// utility.windowhandle(driver);
 
 			// close chrome
-			driver.quit();
+			driver.close();
+		    driver.quit();
+		    driverservice.stop();
 
 			System.out.println("Browser closed");
 		}

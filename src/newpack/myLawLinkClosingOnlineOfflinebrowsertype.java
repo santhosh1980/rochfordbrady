@@ -86,7 +86,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 				
 				//Browser and URL information takes from Utility methods - latest 06/09/2021------
 				
-				driver = utility.browserstart("Chrome");
+				driver = utility.browserstart("IE");
 				
 				//driver = new ChromeDriver();
 				
@@ -226,7 +226,7 @@ public class myLawLinkClosingOnlineOfflinebrowsertype {
 				
 				//scroll down to the lower of webpage and wait
 				
-				utility.scrollscreen(driver, 0, 1000);
+				//utility.scrollscreen(driver, 0, 1000);
 				
 				Thread.sleep(3000);
 

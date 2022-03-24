@@ -29,7 +29,7 @@ public class myLawlinkCRO {
 
 		WebDriverWait mywaitvar = null;
 
-		String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
+		//String driverpath = "C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe";
 
 		String datapath = "C:\\Users\\U35035\\eclipse-workspace\\Data\\TestDataOnlineOffline.xlsx";
 
@@ -38,11 +38,13 @@ public class myLawlinkCRO {
 		Random rand = new Random();
 
 		// create chrome instance
-		System.setProperty("webdriver.chrome.driver", driverpath);
+		//System.setProperty("webdriver.chrome.driver", driverpath);
 
 		for (int i = 0; i <= excel.getrownum(1); i++) {
 
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
+			
+			driver = utility.browserstart("chrome");
 
 			myRBlogin rb = new myRBlogin(driver);
 			
@@ -70,9 +72,9 @@ public class myLawlinkCRO {
 
 			// base url
 
-			String baseurl = "https://nonprod.lawlink.ie";
+			//String baseurl = "https://nonprod.lawlink.ie";
 
-			driver.get(baseurl);
+			//driver.get(baseurl);
 
 			//driver.findElement(By.xpath("//*[@id=\"header_right\"]/p/span/a")).click();
 			
@@ -114,7 +116,7 @@ public class myLawlinkCRO {
 			// driver.findElement(By.id("userRef")).sendKeys("myautotest" +
 			// rand.nextInt(1000));
 
-			rbcom.setuserRef("myautotest" + rand.nextInt(1000));
+			rbcom.setuserRef("mycachetest" + rand.nextInt(1000));
 
 			// select the checkbox - Judgment/Bankruptcy & Personal Insolvency (ISI), CRO
 
@@ -215,10 +217,12 @@ public class myLawlinkCRO {
 
 			// Window handle
 
-			utility.windowhandle(driver);
+			//utility.windowhandle(driver);
 
 			// close chrome
-			// driver.quit();
+			 driver.quit();
+			 
+			
 
 			System.out.println("Browser closed");
 		}

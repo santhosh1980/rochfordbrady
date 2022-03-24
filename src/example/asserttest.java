@@ -2,6 +2,7 @@ package example;
 
 import static org.testng.Assert.assertEquals;
 
+import org.openqa.selenium.*;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -31,7 +32,10 @@ public class asserttest {
 			
 			//WebDriver driver = new FirefoxDriver();
 			
-			driver.manage().window().maximize();
+						
+			driver.manage().window().setSize(new Dimension(320, 480));
+			
+			//driver.manage().window().maximize();
 			
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 			
