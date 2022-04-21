@@ -30,6 +30,7 @@ public class Windowhandle {
 
 		driver.get(baseurl);
 		
+		Thread.sleep(5000);
 				
 		driver.findElement(By.xpath("/html/body/p/a")).click();
 		

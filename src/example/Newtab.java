@@ -26,7 +26,7 @@ public class Newtab {
 		((JavascriptExecutor)driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get("http://mail.google.com");
+		driver.get("http://linkedin.com");
 		Thread.sleep(5000);
 		
 		((JavascriptExecutor)driver).executeScript("window.open()");
