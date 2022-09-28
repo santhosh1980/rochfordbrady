@@ -1,6 +1,9 @@
 package SeleniumGrid;
 
 import org.testng.annotations.Test;
+
+import com.mysql.cj.jdbc.Driver;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -20,7 +23,9 @@ import org.testng.annotations.AfterTest;
 public class CrossBrowserCheck {
   
 	public WebDriver driver;
-	public String URL = "https://www.seleniumeasy.com/test/";
+	public String URL = "http://demo.seleniumeasy.com/";
+	
+
 		
 
 	@Parameters({ "browserType" })
@@ -32,7 +37,7 @@ public class CrossBrowserCheck {
 			System.out.println(" Crossbrowser Executing on FireFox");
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
 			driver=new FirefoxDriver();
-
+			
 
 		} else if (browserType.equalsIgnoreCase("chrome")) {
 			System.out.println(" Crossbrowser Executing on CHROME");
@@ -42,6 +47,9 @@ public class CrossBrowserCheck {
 		} else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
+		
+		
+		
 	}
 
 	@Test
@@ -51,16 +59,19 @@ public class CrossBrowserCheck {
 		// Launch website
 		driver.navigate().to(URL);
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		Thread.sleep(3000);
-		driver.findElement(By.id("at-cv-lightbox-close")).click();
+		//driver.findElement(By.id("at-cv-lightbox-close")).click();
 		
 				
 		//Click Input forms
-		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
+		//driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"navbar-brand-centered\"]/ul[1]/li[1]/a")).click();
 		Thread.sleep(3000);
 		
 		//Click Simple form demo
-		driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]/a")).click();
+		//driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"navbar-brand-centered\"]/ul[1]/li[1]/ul/li[1]/a")).click();
 		Thread.sleep(3000);
 		
 		//Enter message
