@@ -37,12 +37,16 @@ public class CrossBrowserCheck {
 			System.out.println(" Crossbrowser Executing on FireFox");
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\U35035\\eclipse-workspace\\geckodriver-v0.26.0-win64\\geckodriver.exe");
 			driver=new FirefoxDriver();
+			//thread id for parallel test
+			System.out.println("Thead id for firefox is:"+Thread.currentThread().getId());
 			
 
 		} else if (browserType.equalsIgnoreCase("chrome")) {
 			System.out.println(" Crossbrowser Executing on CHROME");
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\U35035\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
+			//thread id for parallel test
+			System.out.println("Thead id for chrome is:"+Thread.currentThread().getId());
 
 		} else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
